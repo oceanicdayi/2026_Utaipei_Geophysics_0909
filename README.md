@@ -10,7 +10,7 @@
 
 **課堂互動頁（GitHub Pages）：** [https://oceanicdayi.github.io/2026_Utaipei_Geophysics_0909/](https://oceanicdayi.github.io/2026_Utaipei_Geophysics_0909/)
 
-投影機上課、學生筆電同步皆可使用：章節切換、任務勾選、課堂計時、CER 白板、DEAR 循環、CLIL 全班朗讀、Gemini Prompt 一鍵複製、Exit Ticket。
+投影機上課、學生筆電同步皆可使用：章節切換、任務勾選、課堂計時、地球物理導論與正演／反演、折射建模逐格揭露、CER 白板、DEAR 循環、CLIL 全班朗讀、Gemini Prompt 一鍵複製、Exit Ticket。
 
 本倉庫整理《地球物理通論》第一堂課的完整教材：互動課堂頁、Marp 簡報原稿、三小時中英文對照講稿、CLIL 句型附錄、PyGMT 示範筆記本、概念圖，以及對應 PDF。這份 README 把上述資料的內容整編成一份可直接閱讀的課程手冊。
 
@@ -82,8 +82,10 @@
 
 | 檔案 | 類型 | 說明 |
 |---|---|---|
-| `docs/` | 課堂互動網站 | GitHub Pages 來源。`index.html` 為單頁課堂工具，含 CSS／JS 與優化後概念圖。 |
+| `docs/` | 課堂互動網站 | GitHub Pages 來源。`index.html` 為單頁課堂工具，含 CSS／JS、概念圖、地球物理導論圖與折射建模逐格揭露。 |
 | `.github/workflows/pages.yml` | GitHub Actions | 推送到 `main` 後自動部署 GitHub Pages。 |
+| `Geophysics_day1_完整文字與圖片.md` | 導論原稿 | 自 Hugging Face Space `oceanicdayi/Geophysics_day1` 擷取的地球物理介紹、正演／反演、約束、應用與資料環境。 |
+| `what_is_geophysics.md` | 短定義 | 地質學看景觀、地球物理學是地質與物理的跨領域。 |
 | `地球物理通論_第一堂課_PPT詳細版.md` | Marp 簡報（16:9） | 第一堂課完整投影片原稿，含 18 週路線、任務設計、CER／DEAR、Gemini prompts、作業與附錄。可用 [Marp](https://marp.app/) 匯出投影片。 |
 | `地球物理通論第一堂課｜3小時中英文對照完整講稿.md` | 講稿 | 09:00–12:00 對照講稿，含板書、CLIL 活動、Colab 示範程式與 Exit Ticket。 |
 | `地球物理通論第一堂課｜3小時中英文對照完整講稿.pdf` | PDF | 上述講稿的匯出成品。 |
@@ -908,7 +910,7 @@ I still need to learn ...
 
 ## 如何使用本倉庫
 
-1. 課堂投影請開 [互動課堂頁](https://oceanicdayi.github.io/2026_Utaipei_Geophysics_0909/)：← → 換頁、上方計時、CER／DEAR／CLIL 可即席操作。
+1. 課堂投影請開 [互動課堂頁](https://oceanicdayi.github.io/2026_Utaipei_Geophysics_0909/)：← → 換頁、上方計時、導論／正演反演／折射建模、CER／DEAR／CLIL 可即席操作。折射建模可用 `?stage=a#refrac` 只顯示 a 圖。
 2. 先讀本 README，掌握課程定位、18 週路線與第一堂課任務。
 3. 上課投影片請用 `地球物理通論_第一堂課_PPT詳細版.md`（Marp）；口語節奏請對照三小時講稿。
 4. 句型練習、CER／DEAR 擴充三例、AI Prompt 與課堂英文，請用 CLIL 附錄。

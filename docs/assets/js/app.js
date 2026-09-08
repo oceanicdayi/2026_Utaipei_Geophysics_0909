@@ -30,12 +30,32 @@ function setTheme(theme) {
   store.set("theme", theme);
 }
 
+function typesetMath() {
+  if (window.renderMathInElement) {
+    window.renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "\\(", right: "\\)", display: false },
+      ],
+      throwOnError: false,
+    });
+  }
+}
+
 function showView(id) {
   $$(".view").forEach((v) => v.classList.toggle("active", v.id === `view-${id}`));
   $$(".nav button").forEach((b) => b.setAttribute("aria-current", b.dataset.view === id ? "page" : "false"));
   location.hash = id;
   const view = $(`#view-${id}`);
   if (view) view.scrollIntoView({ block: "start" });
+  typesetMath();
+}
+
+function setRefracStage(id) {
+  $$(".stage-panel").forEach((p) => p.classList.toggle("on", p.dataset.stage === id));
+  $$("[data-stage-btn]").forEach((b) => b.classList.toggle("primary", b.dataset.stageBtn === id));
+  $$("#model-cycle [data-stage-btn]").forEach((b) => b.classList.toggle("active", b.dataset.stageBtn === id));
+  store.set("refrac-stage", id);
 }
 
 function currentViewIndex() {
@@ -293,13 +313,14 @@ function bindGlobal() {
   $("#cer-project").addEventListener("click", () => $("#cer-board").classList.toggle("project-mode"));
   $$("[data-six]").forEach((b) => b.addEventListener("click", () => sixSet(b.dataset.six)));
   $("#exit-save").addEventListener("click", exportExit);
-  $$(".concept").forEach((img) =>
-    img.addEventListener("click", () => {
-      $("#lightbox-img").src = img.src;
-      $("#lightbox").classList.add("open");
-    })
-  );
+  document.addEventListener("click", (e) => {
+    const img = e.target.closest("img.concept");
+    if (!img) return;
+    $("#lightbox-img").src = img.src;
+    $("#lightbox").classList.add("open");
+  });
   $("#lightbox").addEventListener("click", () => $("#lightbox").classList.remove("open"));
+  $$("[data-stage-btn]").forEach((b) => b.addEventListener("click", () => setRefracStage(b.dataset.stageBtn)));
   document.addEventListener("keydown", (e) => {
     if (["INPUT", "TEXTAREA"].includes(e.target.tagName)) return;
     if (e.key === "ArrowRight") moveView(1);
@@ -331,15 +352,21 @@ function init() {
   restoreCer();
   restoreExit();
   bindGlobal();
+  setRefracStage(store.get("refrac-stage", "a"));
   tickClock();
   setInterval(tickClock, 1000);
   const start = location.hash.replace("#", "") || "open";
   showView(VIEWS.some((v) => v.id === start) ? start : "open");
+  setTimeout(typesetMath, 400);
   const params = new URLSearchParams(location.search);
   const timerQ = Number(params.get("timer"));
   if (timerQ > 0) startTimer(timerQ);
   if (params.get("cer")) loadCer(params.get("cer"));
   if (params.get("chorus") === "1") openChorus(`${$("#core-en").textContent}\n${$("#core-zh").textContent}`);
+  if (params.get("stage")) {
+    setRefracStage(params.get("stage"));
+    showView("refrac");
+  }
 }
 
 document.addEventListener("DOMContentLoaded", init);

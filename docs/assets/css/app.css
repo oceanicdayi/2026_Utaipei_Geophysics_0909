@@ -427,7 +427,7 @@ tr:hover td { background: color-mix(in srgb, var(--gold) 12%, transparent); }
 }
 
 @media (max-width: 860px) {
-  .cer-board, .dear-cycle, .task { grid-template-columns: 1fr; }
+  .cer-board, .dear-cycle, .task, .pair { grid-template-columns: 1fr; }
   .task time { font-size: 0.95rem; }
   .header-row { flex-wrap: wrap; }
 }
@@ -437,6 +437,47 @@ tr:hover td { background: color-mix(in srgb, var(--gold) 12%, transparent); }
   main { padding-bottom: 7.5rem; }
   .dock { left: 1rem; right: 1rem; justify-content: space-between; }
 }
+
+.eq-block {
+  background: var(--paper-2);
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  overflow-x: auto;
+  font-size: 1.05rem;
+}
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+.pair .card { margin: 0; }
+.stage-panel { display: none; }
+.stage-panel.on { display: block; }
+.cycle {
+  display: grid;
+  gap: 0.45rem;
+}
+.cycle button {
+  text-align: left;
+  border: 1px solid var(--line);
+  background: var(--card);
+  border-radius: 12px;
+  padding: 0.7rem 0.85rem;
+  cursor: pointer;
+}
+.cycle button.active { outline: 2px solid var(--magma); }
+.prompt-q {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  margin: 0.4rem 0 0.8rem;
+}
+details.card { padding: 0.4rem 1rem 0.9rem; }
+details.card summary {
+  cursor: pointer;
+  font-weight: 700;
+  padding: 0.6rem 0;
+}
+.level-list { margin: 0.3rem 0 0.8rem; padding-left: 1.1rem; }
 
 @media print {
   .app-header, .dock, .row-actions, .nav-wrap { display: none !important; }

@@ -9,6 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Noto+Sans+TC:wght@400;600;700;800&family=Noto+Serif+TC:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/app.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>
 </head>
 <body>
   <header class="app-header">
@@ -121,6 +124,265 @@
         今日核心問題：為什麼地震、火山、山脈與海溝常常不是隨機分布，而是集中在某些帶狀區域？先不要急著回答「板塊構造」。
       </p>
       <img class="concept" src="assets/img/map6-plates.jpg" alt="概念圖 6：板塊構造多重證據">
+      <p class="row-actions">
+        <button class="btn primary" type="button" onclick="showView('intro')">地球物理導論</button>
+        <button class="btn" type="button" onclick="showView('fwdinv')">正演與反演</button>
+        <button class="btn magma" type="button" onclick="showView('refrac')">折射建模循環</button>
+        <button class="btn" type="button" onclick="showView('apps')">工程應用</button>
+      </p>
+    </section>
+
+    <section class="view" id="view-intro">
+      <h2>地球物理導論</h2>
+      <p class="lede">地質學可以看到景觀：地表的高山、大陸與海洋，幫助我們想像地球內部過程。地球物理學則是地質學與物理學的跨領域科學，用物理量測去「看見」地表之下的世界。</p>
+      <div class="grid-3">
+        <article class="card accent">
+          <h3>地球物理是什麼？</h3>
+          <p>應用物理學原理研究地球。它結合地質觀察與物理量化分析，讓我們能夠推論無法直接切開的地下構造。</p>
+        </article>
+        <article class="card lagoon">
+          <h3>使用哪些方法？</h3>
+          <p>在地表測量物理性質，再推斷地下結構。主要分為地震、位能場與熱流三大類。</p>
+        </article>
+        <article class="card magma">
+          <h3>如何解譯資料？</h3>
+          <p>從觀測到模型，主要用兩種互補方法：<strong>正演模擬</strong>與<strong>反演</strong>。單一資料往往有多種解釋，因此需要約束。</p>
+        </article>
+      </div>
+      <h3 style="font-family:var(--font-serif)">三大類方法：觀測什麼、推論什麼</h3>
+      <table>
+        <thead><tr><th>技術分類</th><th>主要方法</th><th>測量性質</th><th>研究性質</th></tr></thead>
+        <tbody>
+          <tr><td>地震方法 SEISMIC</td><td>天然／人工震源</td><td>地震動</td><td>波速 \(V\)、衰減 \(Q\)、密度 \(\rho\)。利用震波傳播特性繪製地下結構。</td></tr>
+          <tr><td>位能場 POTENTIAL</td><td>重力法／磁力法</td><td>重力加速度 \(g\)／磁場 \(F\)</td><td>密度 \(\rho\)／磁化率 \(\chi\)。測量地球天然場的微小變化，適合大範圍普查。</td></tr>
+          <tr><td>熱流 HEAT FLOW</td><td>地溫測量</td><td>地溫梯度 \(\partial T/\partial z\)</td><td>熱導率 \(k\)、熱流 \(q\)。研究地球內部熱量的傳導與分布。</td></tr>
+        </tbody>
+      </table>
+      <img class="concept" src="assets/img/fig-methods-table.jpg" alt="地球物理方法：地表測量與地下推論對照表" style="margin-top:1rem">
+      <div class="grid-3" style="margin-top:1rem">
+        <article class="card">
+          <h3>地震技術</h3>
+          <p>天然地震、折射、反射。量的是地表震動，推論的是 \(V\)、\(Q\)、\(\rho\)。</p>
+          <img class="concept" src="assets/img/fig-seismic-techniques.jpg" alt="地震技術：地震、折射與反射">
+        </article>
+        <article class="card">
+          <h3>位能場</h3>
+          <p>重力計讀到較高／較低的 \(g\)，磁力儀讀到 \(\vec F\)。地下的密度體與磁性體本身看不見。</p>
+          <img class="concept" src="assets/img/fig-potential-fields.jpg" alt="重力與磁力位能場技術">
+        </article>
+        <article class="card">
+          <h3>熱流</h3>
+          <p>鑽孔中量溫度 \(T_1\ldots T_6\)，得到地溫梯度，再結合熱導率 \(k\) 推論熱流 \(q\)。</p>
+          <img class="concept" src="assets/img/fig-heat-flow.jpg" alt="熱流測量示意">
+        </article>
+      </div>
+      <p class="help">圖表取材自 Lillie, <em>Whole Earth Geophysics</em>（1999）及 Hugging Face Space oceanicdayi/Geophysics_day1。</p>
+    </section>
+
+    <section class="view" id="view-fwdinv">
+      <h2>正演與反演</h2>
+      <p class="lede">從觀測數據到地下模型，地球物理用兩種互補的解譯方法。這也是這門課教科學建模的核心。</p>
+      <div class="pair">
+        <article class="card accent">
+          <h3>正演 Forward Modeling</h3>
+          <p><strong>問：如果地下長這樣，我會測到什麼？</strong></p>
+          <p>先假設一個地下模型，計算理論響應，再與實際觀測比較。解譯者反覆調整模型，直到理論與觀測匹配。</p>
+          <div class="eq-block">\(\text{Underground Model}\rightarrow\text{Predicted Data}\)</div>
+        </article>
+        <article class="card magma">
+          <h3>反演 Inversion</h3>
+          <p><strong>問：我測到了這些數據，造成它的地下結構是什麼？</strong></p>
+          <p>把觀測當作輸入，透過數學求解，產生能夠解釋這些數據的地下模型。野外科學幾乎都走這個方向。</p>
+          <div class="eq-block">\(\text{Observed Data}\rightarrow\text{Possible Underground Model}\)</div>
+        </article>
+      </div>
+      <h3 style="font-family:var(--font-serif)">正演範例：重力異常 a→b→c</h3>
+      <p>圖 1.7：(a) 觀測重力異常，地下是問號；(b) 起始模型的預測與觀測不合；(c) 調整模型後，預測曲線與觀測吻合。</p>
+      <img class="concept" src="assets/img/fig-forward-gravity.jpg" alt="圖 1.7 正演模擬：觀測、起始模型、調整後模型">
+      <h3 style="font-family:var(--font-serif)">反演範例：折射震測 a→b→c→d</h3>
+      <p>圖 1.6：(a) 觀測原始地震數據；(b) 建立走時圖與兩層模型；(c) 套入反演公式；(d) 得到速度與厚度的解釋。課堂逐格操作請到「折射建模」。</p>
+      <img class="concept" src="assets/img/fig-inversion-abcd.jpg" alt="圖 1.6 反演：觀測、模型、方程式、解釋">
+      <p class="row-actions"><button class="btn magma" type="button" onclick="showView('refrac')">用這張圖上課：逐格揭露</button></p>
+      <h3 style="font-family:var(--font-serif)">解譯的黃金法則：約束</h3>
+      <p>地球物理是間接觀測，單一數據可能有多種解釋。必須用約束縮小可能性。</p>
+      <ol class="level-list">
+        <li><strong>硬約束</strong>：可直接觸摸與測量，例如露頭、鑽井岩芯。</li>
+        <li><strong>軟約束</strong>：基於直接證據的合理推斷，例如有限鑽井繪成的地質圖、用震測剖面約束重力模型。</li>
+        <li><strong>合理解釋</strong>：基於地質邏輯的理論假設，例如構造是否合理。</li>
+      </ol>
+      <img class="concept" src="assets/img/fig-gravity-constraints.jpg" alt="重力模型綜合範例：約束與解釋">
+      <p>綜合範例：(a) 收集重力異常、露頭、鑽井、地形、震測反射；(b) 建立符合約束的密度模型，再計算理論重力異常，與觀測曲線比對。吻合代表目前模型受到良好約束，不是「地下真相」本身。</p>
+    </section>
+
+    <section class="view" id="view-refrac">
+      <h2>折射震測與科學建模循環</h2>
+      <p class="lede">科學建模不是把公式套進資料，而是用一個<strong>可檢驗的模型</strong>，從觀測證據推論<strong>不可直接觀察</strong>的世界。建議上課時不要一次把四格全部給學生看。</p>
+      <div class="row-actions">
+        <button class="btn" type="button" data-stage-btn="a">① 只給 a</button>
+        <button class="btn" type="button" data-stage-btn="b">② 再給 b</button>
+        <button class="btn" type="button" data-stage-btn="c">③ 再給 c</button>
+        <button class="btn" type="button" data-stage-btn="d">④ 才給 d</button>
+        <button class="btn" type="button" data-stage-btn="eval">⑤ Evaluate</button>
+        <button class="btn" type="button" data-stage-btn="all">完整四格</button>
+      </div>
+
+      <article class="stage-panel card accent" data-stage="a">
+        <h3>a｜現象與證據　Observed Seismic Refraction Data</h3>
+        <p class="prompt-q">Here are the observations. What might the underground look like?</p>
+        <p>我們真正量到的只有：Source location、Receiver location、Seismograms、First-arrival time、Source–receiver distance。地下是一個大大的 <strong>?</strong>。</p>
+        <img class="concept" src="assets/img/refrac-a.jpg" alt="a 圖：觀測到的折射震測資料">
+        <div class="pair" style="margin-top:1rem">
+          <div class="card">
+            <h3>Observable 看得到</h3>
+            <div class="eq-block">\(x,\ T,\ \text{waveform}\)</div>
+          </div>
+          <div class="card magma">
+            <h3>Unobservable 想知道</h3>
+            <div class="eq-block">\(V_1,\ V_2,\ h\)</div>
+          </div>
+        </div>
+        <p>學生不是先知道地下有兩層再去證明兩層，而是先看到：不同位置收到的震波，到達時間呈現某種規律。接著提出：<em>What underground structure could produce these observations?</em> 讓各組自己畫：一層、兩層、三層、傾斜地層。這就是 Design a Model。</p>
+      </article>
+
+      <article class="stage-panel card lagoon" data-stage="b">
+        <h3>b｜模型建構　Inversion Model / Travel-Time Graph</h3>
+        <p class="prompt-q">Which model can explain the change in slope?</p>
+        <p>右上其實同時包含兩個 representation。科學模型不是 reality，而是 <strong>a simplified representation of reality</strong>：「我假設地下可以暫時用兩個均質水平層來表示。」</p>
+        <img class="concept" src="assets/img/refrac-b.jpg" alt="b 圖：走時曲線與兩層概念模型">
+        <div class="pair" style="margin-top:1rem">
+          <div class="card">
+            <h3>Conceptual / Physical Model</h3>
+            <p>上層 \(V_1\)、下層 \(V_2\)（\(V_2>V_1\)）、界面深度 \(h\)、direct wave、critically refracted wave。</p>
+          </div>
+          <div class="card">
+            <h3>Graphical Model</h3>
+            <p>直達波是較陡的直線；臨界折射波是較平的直線。地下空間結構被轉換成走時圖的幾何結構。</p>
+            <div class="eq-block">\(\text{Subsurface structure}\rightarrow\text{Travel-time pattern}\)</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="stage-panel card gold" data-stage="c">
+        <h3>c｜數學模型　Inversion Equations</h3>
+        <p class="prompt-q">How can mathematics help us test the model?</p>
+        <p>數學的角色不是考算式，而是把定性的地下模型變成<strong>可被資料檢驗的定量模型</strong>。</p>
+        <div class="eq-block">
+          \[ V_1=\frac{1}{\text{slope of direct wave}} \]
+          \[ V_2=\frac{1}{\text{slope of refracted wave}} \]
+          \[ \sin\theta_c=\frac{V_1}{V_2} \]
+          \[ t_1=\frac{2h\cos\theta_c}{V_1}\qquad h=\frac{V_1 t_1}{2\cos\theta_c} \]
+        </div>
+        <p>這時公式才出現學習需求：如果這個模型是真的，它必須符合什麼數學關係？</p>
+      </article>
+
+      <article class="stage-panel card magma" data-stage="d">
+        <h3>d｜解釋，不是地下真相　Interpretation Based on Inversion</h3>
+        <p class="prompt-q">Is this the answer, or is this a model?</p>
+        <p>理想答案：<strong>It is a model supported by the available evidence.</strong></p>
+        <img class="concept" src="assets/img/fig-inversion-abcd.jpg" alt="完整 a–d 四格，d 是反演後的解釋">
+        <div class="eq-block">\(V_1=3870\ \mathrm{m/s},\quad V_2=5210\ \mathrm{m/s},\quad h=1240\ \mathrm{m}\)</div>
+        <p>不要說「所以地下就是這樣。」而要說：<em>Based on our observations and assumptions, this is the model that explains the data.</em></p>
+        <div class="eq-block">\(\text{Data}+\text{Assumptions}+\text{Model}+\text{Mathematics}\rightarrow\text{Interpretation}\)</div>
+        <p>Data ≠ Conclusion。圖 d 的標題是 Interpretation Based on Inversion，不是 The Real Underground Structure。</p>
+      </article>
+
+      <article class="stage-panel card" data-stage="eval">
+        <h3>還缺的一步：Evaluate → Revision</h3>
+        <p>下一個問題不是「答案算完了嗎？」而是：<strong>Does this model reproduce the observed travel times?</strong></p>
+        <div class="eq-block">\(r_i=T_{\text{observed},i}-T_{\text{predicted},i}\)</div>
+        <p>residual 很小：模型目前得到證據支持。出現系統性偏差：模型需要修改。可以改成三層、傾斜界面、或側向速度變化，然後再次 Model → Prediction → Compare → Revise。模型是 <strong>an iterative construction</strong>。</p>
+        <p>這也呼應 AI 教學理念：<strong>答案不是終點，驗證才是學習開始的重要部分。</strong></p>
+      </article>
+
+      <article class="stage-panel card" data-stage="all">
+        <h3>完整四格｜Model-Based Scientific Inquiry</h3>
+        <img class="concept" src="assets/img/fig-inversion-abcd.jpg" alt="折射震測科學建模四格完整圖">
+        <p class="flow"><span>Observation</span>→<span>Representation</span>→<span>Model</span>→<span>Mathematics</span>→<span>Inference</span>→<span>Evaluation</span>→<span>Revision</span></p>
+      </article>
+
+      <h3 style="font-family:var(--font-serif)">模型建構循環</h3>
+      <div class="cycle" id="model-cycle">
+        <button type="button" data-stage-btn="a"><strong>① OBSERVE</strong>　Seismograms / Distance / Travel Time</button>
+        <button type="button" data-stage-btn="b"><strong>② CONSTRUCT A MODEL</strong>　\(V_1/V_2/h\)、Direct / Refracted</button>
+        <button type="button" data-stage-btn="b"><strong>③ REPRESENT</strong>　Travel-Time Graph</button>
+        <button type="button" data-stage-btn="c"><strong>④ MATHEMATIZE</strong>　\(T_1(x),\ T_2(x)\)、Snell's Law</button>
+        <button type="button" data-stage-btn="d"><strong>⑤ INFER</strong>　Estimate \(V_1,V_2,h\)</button>
+        <button type="button" data-stage-btn="eval"><strong>⑥ PREDICT</strong>　Predict travel times</button>
+        <button type="button" data-stage-btn="eval"><strong>⑦ EVALUATE</strong>　Compare with observations → Yes 暫予保留 / No 修正模型</button>
+      </div>
+
+      <div class="pair" style="margin-top:1rem">
+        <article class="card">
+          <h3>Student Model vs AI Model</h3>
+          <p>看到 a 圖時，學生先自己提出地下模型，再問 AI：<em>Based on these seismic arrivals, what underground structure might explain the observations?</em> 然後比較 My model／AI model／Observed evidence。問：Which model is better supported by the data？AI 是 <strong>model-generating collaborator</strong>，不是 answer machine。</p>
+        </article>
+        <article class="card gold">
+          <h3>教學總結</h3>
+          <p><em>We do not observe the underground structure directly. We construct a model that explains the observations, test it against evidence, and revise it when necessary.</em></p>
+          <p>我們不是直接看見地下構造，而是依據觀測建立模型，以證據檢驗模型，並在模型無法解釋資料時進行修正。</p>
+          <p>因此：<strong>地球物理本身就是非常典型的 model-based science。</strong></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="view" id="view-apps">
+      <h2>地球物理的工程應用</h2>
+      <p class="lede">地球物理方法非破壞、效率高、覆蓋範圍廣，在工程、環境、水文、考古與資源探勘中都派得上用場。</p>
+      <div class="grid-2">
+        <article class="card accent">
+          <h3>大地與土木工程</h3>
+          <p>評估工址穩定性、地基與地質弱帶。常用折射／反射、GPR、ERT。</p>
+          <ul>
+            <li>隧道開挖前用地震折射測定岩盤深度與完整性。</li>
+            <li>都市管線工程用透地雷達標定既有管線，防止誤挖。</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>環境工程</h3>
+          <p>調查地下污染物分布。常用 ERT、電磁法、誘導極化。</p>
+          <ul>
+            <li>電阻率法圈繪掩埋場滲出水造成的污染羽。</li>
+            <li>電磁法探測廢棄金屬儲槽或管線洩漏。</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>水利與水文地質</h3>
+          <p>尋找地下水、描繪含水層、評估壩基滲漏。常用 ERT、TEM、折射。</p>
+        </article>
+        <article class="card">
+          <h3>考古學與資源探勘</h3>
+          <p>考古：GPR、磁力、電磁，非破壞探測遺址。資源：反射震測找儲油構造；IP 探測金屬硫化物礦床。</p>
+        </article>
+      </div>
+      <h3 style="font-family:var(--font-serif)">專題：地熱探勘</h3>
+      <p>地熱探勘像為地球做健康檢查，綜合多種方法描繪熱源、儲集層與熱水通道。</p>
+      <div class="grid-2">
+        <article class="card lagoon">
+          <h3>電磁法／大地電磁 MT</h3>
+          <p>熱水富含鹽類、呈低電阻。MT 用天然電磁波反推數公里深的電阻率，圈繪熱水儲集層。</p>
+        </article>
+        <article class="card">
+          <h3>磁力：居禮點深度</h3>
+          <p>磁性礦物約 580°C 失去鐵磁性。地熱活躍區居禮點偏淺，可判斷區域熱流。</p>
+        </article>
+        <article class="card">
+          <h3>震測</h3>
+          <p>反射震測描繪斷層，而斷層常是地熱流體上升的通道。</p>
+        </article>
+        <article class="card">
+          <h3>重力</h3>
+          <p>岩漿庫或高溫熱源密度較低。重力異常提供宏觀構造，常與其他方法互補。</p>
+        </article>
+      </div>
+      <details class="card" style="margin-top:1rem">
+        <summary>資料處理環境：本機 Conda 與 GitHub Codespaces</summary>
+        <p>開始處理資料前需要科學計算環境。<strong>本機</strong>可用 Miniconda 建立 <code>pygmt</code> 環境（Python 3.9、PyGMT、ObsPy、Jupyter）。<strong>Codespaces</strong> 則免安裝、環境一致，適合大班。</p>
+        <p>建議流程：Fork 課程 Repo → 建立 Codespace → 完成 notebook → Commit／Push → 用 Pull Request 繳交，並在 PR 中留下觀察與討論。</p>
+        <pre style="white-space:pre-wrap;background:var(--paper-2);padding:.8rem;border-radius:12px">conda create --name pygmt python=3.9 numpy pandas xarray netcdf4 packaging gmt
+conda activate pygmt
+conda install pygmt obspy jupyter
+pip install streamlit matplotlib</pre>
+      </details>
     </section>
 
     <section class="view" id="view-cer">
