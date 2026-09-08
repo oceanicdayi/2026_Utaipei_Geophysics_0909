@@ -8,7 +8,11 @@
 > 探索地球　‧　連結科學　‧　面向未來  
 > From Earth Systems to a Smarter, More Connected World.
 
-本倉庫整理《地球物理通論》第一堂課的完整教材：Marp 簡報原稿、三小時中英文對照講稿、CLIL 句型附錄、PyGMT 示範筆記本、概念圖，以及對應 PDF。這份 README 把上述資料的內容整編成一份可直接閱讀的課程手冊。
+**課堂互動頁（GitHub Pages）：** [https://oceanicdayi.github.io/2026_Utaipei_Geophysics_0909/](https://oceanicdayi.github.io/2026_Utaipei_Geophysics_0909/)
+
+投影機上課、學生筆電同步皆可使用：章節切換、任務勾選、課堂計時、CER 白板、DEAR 循環、CLIL 全班朗讀、Gemini Prompt 一鍵複製、Exit Ticket。
+
+本倉庫整理《地球物理通論》第一堂課的完整教材：互動課堂頁、Marp 簡報原稿、三小時中英文對照講稿、CLIL 句型附錄、PyGMT 示範筆記本、概念圖，以及對應 PDF。這份 README 把上述資料的內容整編成一份可直接閱讀的課程手冊。
 
 ---
 
@@ -78,6 +82,8 @@
 
 | 檔案 | 類型 | 說明 |
 |---|---|---|
+| `docs/` | 課堂互動網站 | GitHub Pages 來源。`index.html` 為單頁課堂工具，含 CSS／JS 與優化後概念圖。 |
+| `.github/workflows/pages.yml` | GitHub Actions | 推送到 `main` 後自動部署 GitHub Pages。 |
 | `地球物理通論_第一堂課_PPT詳細版.md` | Marp 簡報（16:9） | 第一堂課完整投影片原稿，含 18 週路線、任務設計、CER／DEAR、Gemini prompts、作業與附錄。可用 [Marp](https://marp.app/) 匯出投影片。 |
 | `地球物理通論第一堂課｜3小時中英文對照完整講稿.md` | 講稿 | 09:00–12:00 對照講稿，含板書、CLIL 活動、Colab 示範程式與 Exit Ticket。 |
 | `地球物理通論第一堂課｜3小時中英文對照完整講稿.pdf` | PDF | 上述講稿的匯出成品。 |
@@ -902,12 +908,21 @@ I still need to learn ...
 
 ## 如何使用本倉庫
 
-1. 先讀本 README，掌握課程定位、18 週路線與第一堂課任務。
-2. 上課投影片請用 `地球物理通論_第一堂課_PPT詳細版.md`（Marp）；口語節奏請對照三小時講稿。
-3. 句型練習、CER／DEAR 擴充三例、AI Prompt 與課堂英文，請用 CLIL 附錄。
-4. Colab／PyGMT 操作從 `pygmt_plot_plate_boundary.ipynb` 開始。
-5. 概念圖可直接插入簡報或網頁；檔名與概念圖序號對照見上方檔案一覽。
-6. 修正與新增教材時，請同步更新本 README 與 `修正紀錄.md`。重新輸出 PDF 時請保持 Markdown 與 PDF 檔名對應。
+1. 課堂投影請開 [互動課堂頁](https://oceanicdayi.github.io/2026_Utaipei_Geophysics_0909/)：← → 換頁、上方計時、CER／DEAR／CLIL 可即席操作。
+2. 先讀本 README，掌握課程定位、18 週路線與第一堂課任務。
+3. 上課投影片請用 `地球物理通論_第一堂課_PPT詳細版.md`（Marp）；口語節奏請對照三小時講稿。
+4. 句型練習、CER／DEAR 擴充三例、AI Prompt 與課堂英文，請用 CLIL 附錄。
+5. Colab／PyGMT 操作從 `pygmt_plot_plate_boundary.ipynb` 開始。
+6. 概念圖可直接插入簡報或網頁；檔名與概念圖序號對照見上方檔案一覽。
+7. 修正與新增教材時，請同步更新本 README、課堂頁與 `修正紀錄.md`。重新輸出 PDF 時請保持 Markdown 與 PDF 檔名對應。
+
+### 課堂頁本機預覽
+
+```bash
+python3 -m http.server 8080 --directory docs
+```
+
+瀏覽器開啟 `http://localhost:8080`。GitHub Pages 由 `.github/workflows/pages.yml` 在 `main` 分支推送後部署。若網站尚未出現，請到倉庫 Settings → Pages，Source 選 **GitHub Actions**。
 
 ### 給教師的提醒（簡報附錄）
 

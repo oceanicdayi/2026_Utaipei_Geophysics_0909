@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>地球物理通論｜第一堂課課堂頁</title>
+  <meta name="description" content="臺北市立大學地球物理通論第一堂課互動式課堂頁：任務地圖、CER、DEAR、CLIL 與 AI 探究。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Noto+Sans+TC:wght@400;600;700;800&family=Noto+Serif+TC:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-row">
+      <a class="brand" href="#open">
+        <span class="mark" aria-hidden="true"></span>
+        <div>
+          <h1>地球物理通論｜課堂頁</h1>
+          <p>General Geophysics · 陳達毅 · 09:00–12:00</p>
+        </div>
+      </a>
+      <div class="header-tools">
+        <span class="clock" id="clock">--:--</span>
+        <button class="btn" type="button" data-timer="300">5 分</button>
+        <button class="btn" type="button" data-timer="600">10 分</button>
+        <button class="btn" type="button" data-timer="900">15 分</button>
+        <button class="btn" type="button" id="btn-theme">深淺色</button>
+        <button class="btn primary" type="button" id="btn-full">全螢幕</button>
+      </div>
+    </div>
+    <div class="nav-wrap">
+      <nav class="nav" id="nav" aria-label="課堂章節"></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="view" id="view-open">
+      <div class="hero">
+        <div class="kicker">Week 1 · Course Orientation</div>
+        <h2>用資料與證據理解地球</h2>
+        <p class="lede">臺北市立大學　地球環境暨生物資源學系　第 115 學年第 1 學期。今天不是背完所有工具，而是弄懂：這學期我們要怎麼學地球物理。</p>
+      </div>
+      <div class="slogan-grid">
+        <article class="card accent">
+          <div class="en">How do we know?</div>
+          <h3>我們怎麼知道？</h3>
+        </article>
+        <article class="card lagoon">
+          <div class="en">What evidence supports this idea?</div>
+          <h3>什麼證據支持這個想法？</h3>
+        </article>
+        <article class="card magma">
+          <div class="en">Understanding the answer is your responsibility.</div>
+          <h3>AI 可以產生答案，理解是你的責任。</h3>
+        </article>
+      </div>
+      <p class="flow">
+        <span>觀察資料</span>→<span>提出模型</span>→<span>檢驗模型</span>→<span>修正模型</span>→<span>說明證據</span>
+      </p>
+      <p class="row-actions">
+        <button class="btn primary" type="button" onclick="showView('course')">進入課程定位</button>
+        <button class="btn" type="button" onclick="showView('today')">今日三小時任務</button>
+      </p>
+    </section>
+
+    <section class="view" id="view-course">
+      <h2>這門課在學什麼</h2>
+      <p class="lede">如果我們不知道板塊構造理論，只拿到地形、地震、火山、重力、磁力與熱流資料，能不能自己推論地球正在發生什麼事？</p>
+      <div class="grid-3 pillars" style="margin:1rem 0">
+        <article class="card accent">
+          <h3>學科知識</h3>
+          <div class="en">Geophysics</div>
+          <p>震測、重力、地熱、地電、地磁、板塊構造。</p>
+        </article>
+        <article class="card lagoon">
+          <h3>雙語學習</h3>
+          <div class="en">CLIL / Science through English</div>
+          <p>單字、句型、科學論述、中英文報告。</p>
+        </article>
+        <article class="card magma">
+          <h3>資訊與 AI</h3>
+          <div class="en">Digital Literacy</div>
+          <p>Gemini、AI Agent、Colab、GitHub、PyGMT、3D 建模。</p>
+        </article>
+      </div>
+      <img class="concept" src="assets/img/map1-course.jpg" alt="概念圖 1：這門課到底在學什麼">
+      <p class="help">點圖可放大。期末每組完成 GitHub Pages 網站，並用中英文口頭報告。</p>
+    </section>
+
+    <section class="view" id="view-weeks">
+      <h2>18 週學習路線</h2>
+      <p class="lede">點選週次，投影片式帶過整學期。Week 1 就是今天。</p>
+      <div class="week-grid" id="week-grid"></div>
+      <p class="card" id="week-detail" style="margin-top:1rem">點一個週次，看任務重點。</p>
+      <table style="margin-top:1rem">
+        <thead><tr><th>評量</th><th>比例</th><th>看什麼</th></tr></thead>
+        <tbody>
+          <tr><td>期中考</td><td>40%</td><td>概念、原理、方法</td></tr>
+          <tr><td>作業</td><td>50%</td><td>過程：Colab、PyGMT、AI 紀錄、網頁</td></tr>
+          <tr><td>平時</td><td>10%</td><td>出席、討論、提問</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="view" id="view-today">
+      <h2>今日三小時任務地圖</h2>
+      <p class="lede">教師可把「現在進行」釘在當下任務；勾選表示全班已完成。休息可用上方 10 分鐘計時。</p>
+      <div id="task-list" class="timeline"></div>
+    </section>
+
+    <section class="view" id="view-geo">
+      <h2>地球物理是什麼</h2>
+      <p class="lede"><em>How can we study something we cannot directly see?</em> 我們量測地震波、重力、磁場、電性與熱流，再推論地下構造。</p>
+      <p class="flow"><span>Observe</span>→<span>Analyze</span>→<span>Infer</span></p>
+      <table>
+        <thead><tr><th>方法</th><th>觀測什麼</th><th>可以推論什麼</th></tr></thead>
+        <tbody id="method-body"></tbody>
+      </table>
+      <p class="card" style="margin:1rem 0">
+        今日核心問題：為什麼地震、火山、山脈與海溝常常不是隨機分布，而是集中在某些帶狀區域？先不要急著回答「板塊構造」。
+      </p>
+      <img class="concept" src="assets/img/map6-plates.jpg" alt="概念圖 6：板塊構造多重證據">
+    </section>
+
+    <section class="view" id="view-cer">
+      <h2>CER 課堂白板</h2>
+      <p class="lede">Claim 主張 · Evidence 證據 · Reasoning 推理。可載入範例，也可即席輸入，用「投影放大」給全班看。</p>
+      <div class="row-actions">
+        <button class="btn" data-cer="blank" type="button">空白板</button>
+        <button class="btn" data-cer="taiwan" type="button">台灣地震</button>
+        <button class="btn" data-cer="japan" type="button">日本隱沒</button>
+        <button class="btn" data-cer="seismic" type="button">折射震測</button>
+        <button class="btn" data-cer="gravity" type="button">重力異常</button>
+        <button class="btn primary" id="cer-project" type="button">投影放大</button>
+      </div>
+      <p id="cer-q" class="card gold">課堂即席題</p>
+      <div class="cer-board" id="cer-board">
+        <div class="cer-col card accent">
+          <h3>Claim</h3>
+          <textarea id="cer-claim" placeholder="Our claim is that ______."></textarea>
+        </div>
+        <div class="cer-col card lagoon">
+          <h3>Evidence</h3>
+          <textarea id="cer-evidence" placeholder="The evidence shows that ______."></textarea>
+        </div>
+        <div class="cer-col card magma">
+          <h3>Reasoning</h3>
+          <textarea id="cer-reasoning" placeholder="This evidence supports our claim because ______."></textarea>
+        </div>
+      </div>
+      <img class="concept" src="assets/img/map2-cer.jpg" alt="概念圖 2：科學探究與 CER" style="margin-top:1rem">
+    </section>
+
+    <section class="view" id="view-dear">
+      <h2>DEAR 科學建模循環</h2>
+      <p class="lede">模型不是最後答案，而是可被測試、修正的解釋工具。點 D／E／A／R，把小組討論寫在右側。</p>
+      <div class="grid-2">
+        <div id="dear-cycle" class="dear-cycle"></div>
+        <div class="card">
+          <h3 id="dear-prompt">D — 我們認為正在發生什麼？</h3>
+          <textarea id="dear-note" style="width:100%;min-height:220px;border-radius:12px;border:1px solid var(--line);background:var(--paper);padding:.8rem" placeholder="把初始模型、新證據、預測與修正寫在這裡。"></textarea>
+        </div>
+      </div>
+      <img class="concept" src="assets/img/map3-dear.jpg" alt="概念圖 3：DEAR 循環" style="margin-top:1rem">
+    </section>
+
+    <section class="view" id="view-clil">
+      <h2>CLIL 句型牆</h2>
+      <p class="lede">整學期反覆使用的 10 句。點編號切換；「全班朗讀」會變成投影大字。</p>
+      <div class="clil-toolbar" id="core-btns"></div>
+      <article class="card accent">
+        <div class="help" id="core-n">1 / 10</div>
+        <p class="sentence" id="core-en">We observe that ______.</p>
+        <p class="zh" id="core-zh">我們觀察到＿＿＿＿。</p>
+        <button class="btn magma" id="btn-chorus-core" type="button">全班朗讀</button>
+      </article>
+      <h3 style="font-family:var(--font-serif)">科學論述六句組</h3>
+      <div class="row-actions">
+        <button class="btn" data-six="plate" type="button">板塊構造</button>
+        <button class="btn" data-six="seismic" type="button">折射震測</button>
+        <button class="btn" data-six="gravity" type="button">重力探勘</button>
+      </div>
+      <div class="card example-list" id="six-box"></div>
+      <h3 style="font-family:var(--font-serif)">句型抽卡</h3>
+      <article class="card lagoon">
+        <div class="help" id="clil-meta"></div>
+        <p class="sentence" id="clil-en"></p>
+        <p class="zh" id="clil-zh"></p>
+        <div class="row-actions">
+          <button class="btn" id="clil-prev" type="button">上一句</button>
+          <button class="btn" id="clil-rand" type="button">隨機抽句</button>
+          <button class="btn" id="clil-next" type="button">下一句</button>
+          <button class="btn magma" id="btn-chorus-clil" type="button">全班朗讀</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="view" id="view-ai">
+      <h2>AI 是協作者，不是答案機器</h2>
+      <div class="grid-3">
+        <article class="card"><h3>1 學生問題</h3><p>提出好奇、定義問題。</p></article>
+        <article class="card"><h3>2 AI 建議</h3><p>獲得想法與多元觀點。</p></article>
+        <article class="card"><h3>3 我的判斷</h3><p>選擇有用的內容。</p></article>
+        <article class="card"><h3>4 找證據</h3><p>查資料、核對事實。</p></article>
+        <article class="card"><h3>5 驗證</h3><p>確認合理性與限制。</p></article>
+        <article class="card"><h3>6 修正</h3><p>調整想法，持續改進。</p></article>
+      </div>
+      <p class="card" style="margin:1rem 0"><strong>AI 對話紀錄 = 學習證據。</strong> Prompt → AI response → My evaluation → Evidence → Revision。</p>
+      <img class="concept" src="assets/img/map4-ai.jpg" alt="概念圖 4：AI 是協作者">
+    </section>
+
+    <section class="view" id="view-flow">
+      <h2>從問題到 GitHub Pages</h2>
+      <p class="flow">
+        <span>Gemini</span>→<span>Colab / PyGMT</span>→<span>AI Agent</span>→<span>GitHub</span>→<span>Pages</span>→<span>同儕報告</span>
+      </p>
+      <p class="help">Question → Data → Code → Figure → Interpretation → AI Log → Webpage</p>
+      <img class="concept" src="assets/img/map5-workflow.jpg" alt="概念圖 5：數位工作流程">
+      <div class="grid-2" style="margin-top:1rem">
+        <article class="card">
+          <h3>GitHub 今日任務</h3>
+          <p>建立 repository（建議 <code>geophysics-learning-2026</code>），寫下第一版 README。</p>
+        </article>
+        <article class="card">
+          <h3>Colab 今日任務</h3>
+          <p><code>print("Hello, Geophysics!")</code>，並記住走時 <em>t = d / v</em>。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="view" id="view-prompts">
+      <h2>Gemini 探究 Prompts</h2>
+      <p class="lede">課堂示範可直接複製。原則：不要直接要答案，先要三個可檢驗的假說。</p>
+      <div class="grid-2" id="prompt-list"></div>
+    </section>
+
+    <section class="view" id="view-work">
+      <h2>第一堂課作業</h2>
+      <div class="grid-2">
+        <article class="card accent">
+          <h3>作業一｜工具確認</h3>
+          <ul>
+            <li>GitHub 帳號與練習 repo 連結</li>
+            <li>Google Colab notebook</li>
+            <li>Gemini 對話紀錄</li>
+            <li>小組名單</li>
+          </ul>
+        </article>
+        <article class="card lagoon">
+          <h3>作業二｜AI 探究紀錄</h3>
+          <p>主題：為什麼地震、火山、山脈與海溝常常集中在某些帶狀區域？</p>
+          <p>繳交：對話紀錄、CER、DEAR、100–200 字反思。</p>
+        </article>
+      </div>
+      <p class="help">下週：PyGMT — Visualizing the Earth。請帶筆電、Google 帳號、GitHub 帳號與今天的 AI 紀錄。</p>
+    </section>
+
+    <section class="view" id="view-exit">
+      <h2>Exit Ticket</h2>
+      <p class="lede">離開前三句。可存在這台電腦，也可下載成 Markdown。</p>
+      <div class="card grid-2">
+        <label>姓名 / 組別<br><input id="exit-name" style="width:100%;margin-top:.3rem;padding:.55rem;border-radius:10px;border:1px solid var(--line);background:var(--paper)"></label>
+        <span></span>
+        <label>Today I learned that geophysics is ______.<br><textarea id="exit-q1" style="width:100%;min-height:90px;margin-top:.3rem;padding:.55rem;border-radius:10px;border:1px solid var(--line);background:var(--paper)"></textarea></label>
+        <label>One digital tool I used today was ______.<br><textarea id="exit-q2" style="width:100%;min-height:90px;margin-top:.3rem;padding:.55rem;border-radius:10px;border:1px solid var(--line);background:var(--paper)"></textarea></label>
+        <label>One question I still have is ______.<br><textarea id="exit-q3" style="width:100%;min-height:90px;margin-top:.3rem;padding:.55rem;border-radius:10px;border:1px solid var(--line);background:var(--paper)"></textarea></label>
+      </div>
+      <p class="row-actions"><button class="btn primary" id="exit-save" type="button">下載 Exit Ticket</button></p>
+    </section>
+
+    <p class="footer-note">快捷鍵：← → 換頁　Esc 關閉計時／朗讀／圖片。內容來自本倉庫第一堂課教材，課堂頁部署於 GitHub Pages。</p>
+  </main>
+
+  <div class="dock">
+    <button class="btn" id="btn-prev" type="button">上一頁</button>
+    <button class="btn primary" id="btn-next" type="button">下一頁</button>
+  </div>
+
+  <div class="overlay" id="timer-overlay">
+    <div class="help">課堂計時</div>
+    <div class="timer-digits" id="timer-digits">10:00</div>
+    <button class="btn" id="timer-close" type="button">關閉</button>
+  </div>
+  <div class="overlay huge" id="chorus-overlay">
+    <div id="chorus-text"></div>
+    <button class="btn" id="chorus-close" type="button" style="margin-top:1.5rem">關閉</button>
+  </div>
+  <div class="lightbox" id="lightbox"><img id="lightbox-img" alt="放大的概念圖"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    document.getElementById("method-body").innerHTML = METHODS.map(
+      (m) => `<tr><td>${m.name}</td><td>${m.observe}</td><td>${m.infer}</td></tr>`
+    ).join("");
+  </script>
+</body>
+</html>
