@@ -391,6 +391,13 @@ tr:hover td { background: color-mix(in srgb, var(--gold) 12%, transparent); }
   padding: 2rem;
 }
 .overlay.open { display: flex; flex-direction: column; }
+.overlay .btn {
+  background: #f7f2ea;
+  color: #182230;
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  padding: 0.55rem 1.2rem;
+}
 .overlay.huge { font-family: var(--font-serif); font-size: clamp(1.6rem, 5vw, 3.4rem); line-height: 1.3; }
 .timer-digits {
   font-variant-numeric: tabular-nums;

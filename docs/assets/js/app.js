@@ -105,7 +105,7 @@ function bindTasks() {
 
 function loadCer(key) {
   const ex = CER_EXAMPLES[key] || CER_EXAMPLES.blank;
-  $("#cer-q").textContent = ex.q;
+  $("#cer-q").value = ex.q;
   $("#cer-claim").value = ex.claim;
   $("#cer-evidence").value = ex.evidence;
   $("#cer-reasoning").value = ex.reasoning;
@@ -114,7 +114,7 @@ function loadCer(key) {
 
 function persistCer() {
   store.set("cer", {
-    q: $("#cer-q").textContent,
+    q: $("#cer-q").value,
     claim: $("#cer-claim").value,
     evidence: $("#cer-evidence").value,
     reasoning: $("#cer-reasoning").value,
@@ -124,7 +124,7 @@ function persistCer() {
 function restoreCer() {
   const saved = store.get("cer");
   if (!saved) return;
-  $("#cer-q").textContent = saved.q || "課堂即席題";
+  $("#cer-q").value = saved.q || "課堂即席題";
   $("#cer-claim").value = saved.claim || "";
   $("#cer-evidence").value = saved.evidence || "";
   $("#cer-reasoning").value = saved.reasoning || "";
@@ -202,6 +202,7 @@ function renderPrompts() {
 function sixSet(name) {
   const lines = SIX_SETS[name];
   $("#six-box").innerHTML = lines.map((l, i) => `<p><b>${i + 1}.</b> ${l}</p>`).join("");
+  $$("[data-six]").forEach((b) => b.classList.toggle("primary", b.dataset.six === name));
 }
 
 let timerRemain = 0;
@@ -288,7 +289,7 @@ function bindGlobal() {
   $("#clil-next").addEventListener("click", () => showClil(clilIndex + 1));
   $("#clil-rand").addEventListener("click", () => showClil(Math.floor(Math.random() * CLIL_BANK.length)));
   $$("[data-cer]").forEach((b) => b.addEventListener("click", () => loadCer(b.dataset.cer)));
-  ["cer-claim", "cer-evidence", "cer-reasoning"].forEach((id) => $(`#${id}`).addEventListener("input", persistCer));
+  ["cer-q", "cer-claim", "cer-evidence", "cer-reasoning"].forEach((id) => $(`#${id}`).addEventListener("input", persistCer));
   $("#cer-project").addEventListener("click", () => $("#cer-board").classList.toggle("project-mode"));
   $$("[data-six]").forEach((b) => b.addEventListener("click", () => sixSet(b.dataset.six)));
   $("#exit-save").addEventListener("click", exportExit);
@@ -334,6 +335,11 @@ function init() {
   setInterval(tickClock, 1000);
   const start = location.hash.replace("#", "") || "open";
   showView(VIEWS.some((v) => v.id === start) ? start : "open");
+  const params = new URLSearchParams(location.search);
+  const timerQ = Number(params.get("timer"));
+  if (timerQ > 0) startTimer(timerQ);
+  if (params.get("cer")) loadCer(params.get("cer"));
+  if (params.get("chorus") === "1") openChorus(`${$("#core-en").textContent}\n${$("#core-zh").textContent}`);
 }
 
 document.addEventListener("DOMContentLoaded", init);
