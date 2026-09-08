@@ -924,7 +924,7 @@ I still need to learn ...
 python3 -m http.server 8080 --directory docs
 ```
 
-瀏覽器開啟 `http://localhost:8080`。GitHub Pages 由 `.github/workflows/pages.yml` 在 `main` 分支推送後部署。若網站尚未出現，請到倉庫 Settings → Pages，Source 選 **GitHub Actions**。
+瀏覽器開啟 `http://localhost:8080`。GitHub Pages 由 `.github/workflows/pages.yml` 在 `main` 分支推送後部署。若網站尚未出現，請到倉庫 **Settings → Pages**，Source 選 **GitHub Actions**（只需設定一次）。workflow 已設定 `enablement: true`，合併後會嘗試自動開啟 Pages。
 
 ### 給教師的提醒（簡報附錄）
 
