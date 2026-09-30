@@ -479,6 +479,85 @@ details.card summary {
 }
 .level-list { margin: 0.3rem 0 0.8rem; padding-left: 1.1rem; }
 
+/* ── 相關連結卡片 ─────────────────────────────────── */
+.related-links-title {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+  margin: 0 0 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.related-links-title::before {
+  content: "🔗";
+  font-size: 1rem;
+}
+.link-card-grid { margin: 0; }
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  text-decoration: none;
+  color: var(--ink);
+  box-shadow: var(--shadow);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  cursor: pointer;
+}
+.link-card:hover, .link-card:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 48px rgba(24, 34, 48, 0.14);
+}
+.link-card:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.link-card--accent {
+  border-top: 4px solid var(--ocean);
+}
+.link-card--accent:hover { border-color: var(--ocean); }
+.link-card--lagoon {
+  border-top: 4px solid var(--lagoon);
+}
+.link-card--lagoon:hover { border-color: var(--lagoon); }
+.link-card__icon {
+  font-size: 2rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.link-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+.link-card__label {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ocean);
+  line-height: 1.3;
+}
+.link-card--lagoon .link-card__label { color: var(--lagoon); }
+.link-card__desc {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+.link-card__arrow {
+  font-size: 1.2rem;
+  color: var(--stone);
+  flex-shrink: 0;
+  transition: transform 0.18s ease, color 0.18s ease;
+}
+.link-card:hover .link-card__arrow {
+  transform: translate(2px, -2px);
+  color: var(--ocean);
+}
+.link-card--lagoon:hover .link-card__arrow { color: var(--lagoon); }
+
 @media print {
   .app-header, .dock, .row-actions, .nav-wrap { display: none !important; }
   .view { display: block !important; break-inside: avoid; }
