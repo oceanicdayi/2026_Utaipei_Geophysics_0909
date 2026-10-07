@@ -566,7 +566,11 @@ a.btn.magma { color: #fff; }
 .link-card--gold:hover { border-color: var(--gold); }
 .link-card--gold .link-card__label { color: color-mix(in srgb, var(--gold) 62%, var(--ink)); }
 .link-card--gold:hover .link-card__arrow { color: var(--gold); }
-.field-crosslink { margin: 1.2rem 0; }
+.link-card--magma { border-top: 4px solid var(--magma); }
+.link-card--magma:hover { border-color: var(--magma); }
+.link-card--magma .link-card__label { color: var(--magma); }
+.link-card--magma:hover .link-card__arrow { color: var(--magma); }
+.crosslink-grid { margin: 1.2rem 0; }
 
 .field-metrics {
   display: grid;
