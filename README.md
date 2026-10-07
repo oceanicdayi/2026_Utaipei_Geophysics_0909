@@ -12,6 +12,8 @@
 
 **校園折射震測實驗網站：** [https://oceanicdayi.github.io/2026_Utaipei_Geophysics_0909/seismic-inquiry/](https://oceanicdayi.github.io/2026_Utaipei_Geophysics_0909/seismic-inquiry/)（12 個震源點、60 張現場照片、互動建模與現場影片；課堂頁「校園震測」分頁有簡介）
 
+**震波探究實驗室（互動模擬）：** [https://oceanicdayi.github.io/2026_geophysics_refraction/](https://oceanicdayi.github.io/2026_geophysics_refraction/)（以預測‧觀察‧解釋 POE 流程，在模擬器中配置測線、敲擊並標記到時；課堂頁開場「相關連結」與「折射建模」頁已加入連結）
+
 投影機上課、學生筆電同步皆可使用：章節切換、任務勾選、課堂計時、地球物理導論與正演／反演、折射建模逐格揭露、CER 白板、DEAR 循環、CLIL 全班朗讀、Gemini Prompt 一鍵複製、Exit Ticket。
 
 本倉庫整理《地球物理通論》第一堂課的完整教材：互動課堂頁、Marp 簡報原稿、三小時中英文對照講稿、CLIL 句型附錄、PyGMT 示範筆記本、概念圖，以及對應 PDF。這份 README 把上述資料的內容整編成一份可直接閱讀的課程手冊。
