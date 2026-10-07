@@ -17,6 +17,7 @@ const VIEWS = [
   { id: "intro", label: "導論" },
   { id: "fwdinv", label: "正演反演" },
   { id: "refrac", label: "折射建模" },
+  { id: "field", label: "校園震測" },
   { id: "apps", label: "應用" },
   { id: "cer", label: "CER" },
   { id: "dear", label: "DEAR" },

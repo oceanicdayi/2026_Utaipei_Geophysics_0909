@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="校園折射震測實驗：從真實觀測、資料品質到科學建模的完整探究歷程。">
+  <meta name="theme-color" content="#18352f">
+  <title>看不見的地下，怎麼知道？｜校園折射震測科學建模</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+
+  <header class="hero" id="top">
+    <nav class="topnav">
+      <a class="brand" href="#top"><span class="brand-dot"></span> Seismic Inquiry Lab</a>
+      <div class="navlinks">
+        <a href="#story">探究歷程</a>
+        <a href="#shot-lab">震源互動</a>
+        <a href="#model-lab">建模實驗室</a>
+        <a href="#reflection">課程收束</a>
+      </div>
+      <a class="back-link" href="../#field" title="回到地球物理通論課堂頁">← 回課堂頁</a>
+    </nav>
+
+    <div class="hero-inner">
+      <div class="hero-copy reveal">
+        <p class="kicker">EARTH SCIENCE × SCIENTIFIC MODELING × STEM+</p>
+        <h1>看不見的地下，<br><span>我們怎麼知道？</span></h1>
+        <p class="hero-lead">以一場真實的校園折射震測實驗，帶學生從儀器、量測、資料品質、first arrival，一路走到地下速度模型的建立、檢驗與修正。</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#story">開始探究</a>
+          <a class="btn ghost" href="#model-lab">直接進入建模</a>
+        </div>
+      </div>
+      <div class="hero-panel reveal">
+        <div class="metric"><strong>12</strong><span>震源點</span></div>
+        <div class="metric"><strong>0–44 m</strong><span>測線震源範圍</span></div>
+        <div class="metric"><strong>4 m</strong><span>震源點間距</span></div>
+        <div class="metric"><strong>60</strong><span>現場照片完整紀錄</span></div>
+      </div>
+    </div>
+    <div class="hero-photo-strip" aria-hidden="true">
+      <img src="assets/images/1000050442.jpg" alt="">
+      <img src="assets/images/1000050461.jpg" alt="">
+      <img src="assets/images/1000050473.jpg" alt="">
+      <img src="assets/images/1000050482.jpg" alt="">
+      <img src="assets/images/1000050539.jpg" alt="">
+    </div>
+  </header>
+
+  <main>
+    <section class="intro-section" id="story">
+      <div class="section-title reveal">
+        <p class="eyebrow">THE BIG IDEA</p>
+        <h2>我們不是直接「看見」地下，<br>而是用證據建立模型。</h2>
+        <p>整個課程不是一連串器材操作，而是一個完整的科學建模歷程。</p>
+      </div>
+
+      <div class="model-flow reveal">
+        <div><b>1</b><span>提出問題</span><small>看不見的地下</small></div>
+        <i>→</i>
+        <div><b>2</b><span>設計觀測</span><small>震源＋受波器</small></div>
+        <i>→</i>
+        <div><b>3</b><span>取得證據</span><small>距離＋到時</small></div>
+        <i>→</i>
+        <div><b>4</b><span>找出規律</span><small>走時曲線</small></div>
+        <i>→</i>
+        <div><b>5</b><span>建立模型</span><small>地下速度結構</small></div>
+        <i>→</i>
+        <div><b>6</b><span>檢驗修正</span><small>多震源資料</small></div>
+      </div>
+    </section>
+
+    
+    <section class="lesson-stage" id="stage1">
+      <div class="stage-head reveal">
+        <div class="stage-index">01</div>
+        <div>
+          <p class="eyebrow">問題情境與儀器認識</p>
+          <h2>從看不見的地下開始</h2>
+          <p class="stage-question">「地下看不到，我們要怎麼知道下面有什麼？」</p>
+        </div>
+      </div>
+      <div class="stage-copy reveal">
+        <p>教師先在真實校園場域介紹折射震測的目的與整套設備，讓學生先理解「我們不是直接看地下，而是透過震波取得證據」。專業震測儀可接收受波器訊號與榔頭 trigger，並把多通道資料傳送至電腦。</p>
+        <div class="tags"><span class="tag">問題情境</span><span class="tag">真實儀器</span><span class="tag">觀測系統</span></div>
+      </div>
+      <div class="photo-grid">
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050442.jpg" data-caption="教師在現場說明震測原理與整套器材。" aria-label="放大照片：教師在現場說明震測原理與整套器材。">
+            <img src="assets/images/1000050442.jpg" alt="教師在現場說明震測原理與整套器材。" loading="lazy">
+          </button>
+          <figcaption>教師在現場說明震測原理與整套器材。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050447.jpg" data-caption="從儀器與線材開始，建立學生對完整震測系統的概念。" aria-label="放大照片：從儀器與線材開始，建立學生對完整震測系統的概念。">
+            <img src="assets/images/1000050447.jpg" alt="從儀器與線材開始，建立學生對完整震測系統的概念。" loading="lazy">
+          </button>
+          <figcaption>從儀器與線材開始，建立學生對完整震測系統的概念。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050452.jpg" data-caption="展示專業震測儀：接收訊號、同步記錄並輸出至電腦。" aria-label="放大照片：展示專業震測儀：接收訊號、同步記錄並輸出至電腦。">
+            <img src="assets/images/1000050452.jpg" alt="展示專業震測儀：接收訊號、同步記錄並輸出至電腦。" loading="lazy">
+          </button>
+          <figcaption>展示專業震測儀：接收訊號、同步記錄並輸出至電腦。</figcaption>
+        </figure></div>
+    </section>
+    
+
+    <section class="lesson-stage" id="stage2">
+      <div class="stage-head reveal">
+        <div class="stage-index">02</div>
+        <div>
+          <p class="eyebrow">Hammer、trigger 與 t = 0</p>
+          <h2>建立震源與絕對時間</h2>
+          <p class="stage-question">「如果不知道震源何時發生，我們能計算震波走了多久嗎？」</p>
+        </div>
+      </div>
+      <div class="stage-copy reveal">
+        <p>榔頭敲擊鐵板產生人工震源；榔頭上的感測器透過訊號線回傳 trigger，讓震測儀把敲擊瞬間定義為 t = 0。這是後續判讀每個受波器「到時」的時間基準。</p>
+        <div class="tags"><span class="tag">人工震源</span><span class="tag">Trigger</span><span class="tag">t = 0</span></div>
+      </div>
+      <div class="photo-grid">
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050453.jpg" data-caption="榔頭、鐵板與 trigger 訊號線。" aria-label="放大照片：榔頭、鐵板與 trigger 訊號線。">
+            <img src="assets/images/1000050453.jpg" alt="榔頭、鐵板與 trigger 訊號線。" loading="lazy">
+          </button>
+          <figcaption>榔頭、鐵板與 trigger 訊號線。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050454.jpg" data-caption="教師展示產生震源的榔頭與感測器線路。" aria-label="放大照片：教師展示產生震源的榔頭與感測器線路。">
+            <img src="assets/images/1000050454.jpg" alt="教師展示產生震源的榔頭與感測器線路。" loading="lazy">
+          </button>
+          <figcaption>教師展示產生震源的榔頭與感測器線路。</figcaption>
+        </figure></div>
+    </section>
+    
+
+    <section class="lesson-stage" id="stage3">
+      <div class="stage-head reveal">
+        <div class="stage-index">03</div>
+        <div>
+          <p class="eyebrow">量距、座標與受波器布設</p>
+          <h2>先知道每一筆資料來自哪裡</h2>
+          <p class="stage-question">「只有波形沒有位置，能不能建立地下模型？」</p>
+        </div>
+      </div>
+      <div class="stage-copy reveal">
+        <p>學生利用皮尺建立測線與位置基準，再依位置插設受波器。受波器需要與地面良好耦合，才能把地面振動轉換成可靠的電訊號。位置與到時要一起使用，才能形成可解釋的距離—時間資料。</p>
+        <div class="tags"><span class="tag">Distance</span><span class="tag">Geophone</span><span class="tag">Ground coupling</span></div>
+      </div>
+      <div class="photo-grid">
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050455.jpg" data-caption="教師示範使用皮尺建立測線與距離基準。" aria-label="放大照片：教師示範使用皮尺建立測線與距離基準。">
+            <img src="assets/images/1000050455.jpg" alt="教師示範使用皮尺建立測線與距離基準。" loading="lazy">
+          </button>
+          <figcaption>教師示範使用皮尺建立測線與距離基準。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050456.jpg" data-caption="皮尺提供每一個觀測點的空間位置。" aria-label="放大照片：皮尺提供每一個觀測點的空間位置。">
+            <img src="assets/images/1000050456.jpg" alt="皮尺提供每一個觀測點的空間位置。" loading="lazy">
+          </button>
+          <figcaption>皮尺提供每一個觀測點的空間位置。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050457.jpg" data-caption="教師示範將受波器穩定插入地面。" aria-label="放大照片：教師示範將受波器穩定插入地面。">
+            <img src="assets/images/1000050457.jpg" alt="教師示範將受波器穩定插入地面。" loading="lazy">
+          </button>
+          <figcaption>教師示範將受波器穩定插入地面。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050461.jpg" data-caption="學生沿皮尺實際布設受波器。" aria-label="放大照片：學生沿皮尺實際布設受波器。">
+            <img src="assets/images/1000050461.jpg" alt="學生沿皮尺實際布設受波器。" loading="lazy">
+          </button>
+          <figcaption>學生沿皮尺實際布設受波器。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050458.jpg" data-caption="依測線位置逐點插設受波器。" aria-label="放大照片：依測線位置逐點插設受波器。">
+            <img src="assets/images/1000050458.jpg" alt="依測線位置逐點插設受波器。" loading="lazy">
+          </button>
+          <figcaption>依測線位置逐點插設受波器。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050459.jpg" data-caption="學生合作確認距離與受波器位置。" aria-label="放大照片：學生合作確認距離與受波器位置。">
+            <img src="assets/images/1000050459.jpg" alt="學生合作確認距離與受波器位置。" loading="lazy">
+          </button>
+          <figcaption>學生合作確認距離與受波器位置。</figcaption>
+        </figure></div>
+    </section>
+    
+
+    <section class="lesson-stage" id="stage4">
+      <div class="stage-head reveal">
+        <div class="stage-index">04</div>
+        <div>
+          <p class="eyebrow">受波器、訊號線與 channel</p>
+          <h2>學生建立完整的訊號路徑</h2>
+          <p class="stage-question">「感測器量到振動之後，資料怎麼回到震測儀？」</p>
+        </div>
+      </div>
+      <div class="stage-copy reveal">
+        <p>學生把訊號線逐一配置到各受波器旁，再完成接線。每一個觀測點都必須對應正確的 channel 與位置；否則即使收到訊號，也可能因來源標示錯誤而無法正確解釋。</p>
+        <div class="tags"><span class="tag">Signal path</span><span class="tag">Channel</span><span class="tag">Data provenance</span></div>
+      </div>
+      <div class="photo-grid">
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050462.jpg" data-caption="學生將訊號線沿測線放到各受波器旁。" aria-label="放大照片：學生將訊號線沿測線放到各受波器旁。">
+            <img src="assets/images/1000050462.jpg" alt="學生將訊號線沿測線放到各受波器旁。" loading="lazy">
+          </button>
+          <figcaption>學生將訊號線沿測線放到各受波器旁。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050463.jpg" data-caption="學生連接受波器與訊號線。" aria-label="放大照片：學生連接受波器與訊號線。">
+            <img src="assets/images/1000050463.jpg" alt="學生連接受波器與訊號線。" loading="lazy">
+          </button>
+          <figcaption>學生連接受波器與訊號線。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050464.jpg" data-caption="兩人合作確認受波器與接頭。" aria-label="放大照片：兩人合作確認受波器與接頭。">
+            <img src="assets/images/1000050464.jpg" alt="兩人合作確認受波器與接頭。" loading="lazy">
+          </button>
+          <figcaption>兩人合作確認受波器與接頭。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050465.jpg" data-caption="完成受波器與訊號線連接。" aria-label="放大照片：完成受波器與訊號線連接。">
+            <img src="assets/images/1000050465.jpg" alt="完成受波器與訊號線連接。" loading="lazy">
+          </button>
+          <figcaption>完成受波器與訊號線連接。</figcaption>
+        </figure></div>
+    </section>
+    
+
+    <section class="lesson-stage" id="stage5">
+      <div class="stage-head reveal">
+        <div class="stage-index">05</div>
+        <div>
+          <p class="eyebrow">Seismograph → Computer</p>
+          <h2>把所有元件整合成量測系統</h2>
+          <p class="stage-question">「一個科學量測系統，需要哪些環節同時正確？」</p>
+        </div>
+      </div>
+      <div class="stage-copy reveal">
+        <p>受波器訊號線、榔頭 trigger、車用電池與電腦通訊線都接入震測儀。此時系統才能同步接收震源時間與多通道地面振動，並把資料傳送到電腦顯示與儲存。</p>
+        <div class="tags"><span class="tag">System integration</span><span class="tag">Power</span><span class="tag">Data acquisition</span></div>
+      </div>
+      <div class="photo-grid">
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050467.jpg" data-caption="震測儀、電池與各類線路完成連接。" aria-label="放大照片：震測儀、電池與各類線路完成連接。">
+            <img src="assets/images/1000050467.jpg" alt="震測儀、電池與各類線路完成連接。" loading="lazy">
+          </button>
+          <figcaption>震測儀、電池與各類線路完成連接。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050468.jpg" data-caption="現場完整量測系統：震源、電源、訊號與通訊。" aria-label="放大照片：現場完整量測系統：震源、電源、訊號與通訊。">
+            <img src="assets/images/1000050468.jpg" alt="現場完整量測系統：震源、電源、訊號與通訊。" loading="lazy">
+          </button>
+          <figcaption>現場完整量測系統：震源、電源、訊號與通訊。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050469.jpg" data-caption="所有主要線路接入震測儀。" aria-label="放大照片：所有主要線路接入震測儀。">
+            <img src="assets/images/1000050469.jpg" alt="所有主要線路接入震測儀。" loading="lazy">
+          </button>
+          <figcaption>所有主要線路接入震測儀。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050470.jpg" data-caption="震測儀透過通訊線連接電腦。" aria-label="放大照片：震測儀透過通訊線連接電腦。">
+            <img src="assets/images/1000050470.jpg" alt="震測儀透過通訊線連接電腦。" loading="lazy">
+          </button>
+          <figcaption>震測儀透過通訊線連接電腦。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050471.jpg" data-caption="現場可看到震測儀至電腦的資料傳輸線。" aria-label="放大照片：現場可看到震測儀至電腦的資料傳輸線。">
+            <img src="assets/images/1000050471.jpg" alt="現場可看到震測儀至電腦的資料傳輸線。" loading="lazy">
+          </button>
+          <figcaption>現場可看到震測儀至電腦的資料傳輸線。</figcaption>
+        </figure></div>
+    </section>
+    
+
+    <section class="lesson-stage" id="stage6">
+      <div class="stage-head reveal">
+        <div class="stage-index">06</div>
+        <div>
+          <p class="eyebrow">震源位置、鐵板、重複敲擊與取樣率</p>
+          <h2>好的資料是設計出來的</h2>
+          <p class="stage-question">「為什麼不是敲一次就好？為什麼儀器設定也會影響結果？」</p>
+        </div>
+      </div>
+      <div class="stage-copy reveal">
+        <p>教師說明如何決定 shot point、為什麼使用鐵板作為穩定的震源耦合面，以及如何在同一位置重複敲擊並疊加，提高訊噪比。也進一步說明取樣率與時間解析能力的關係：取樣越密，越能精細判讀毫秒等級的到時差。</p>
+        <div class="tags"><span class="tag">Repeatability</span><span class="tag">Stacking</span><span class="tag">Sampling rate</span><span class="tag">SNR</span></div>
+      </div>
+      <div class="photo-grid">
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050472.jpg" data-caption="教師說明敲擊點位置與訊號品質。" aria-label="放大照片：教師說明敲擊點位置與訊號品質。">
+            <img src="assets/images/1000050472.jpg" alt="教師說明敲擊點位置與訊號品質。" loading="lazy">
+          </button>
+          <figcaption>教師說明敲擊點位置與訊號品質。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050473.jpg" data-caption="示範榔頭敲擊鐵板產生震源。" aria-label="放大照片：示範榔頭敲擊鐵板產生震源。">
+            <img src="assets/images/1000050473.jpg" alt="示範榔頭敲擊鐵板產生震源。" loading="lazy">
+          </button>
+          <figcaption>示範榔頭敲擊鐵板產生震源。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050474.jpg" data-caption="說明鐵板與重複敲擊的目的。" aria-label="放大照片：說明鐵板與重複敲擊的目的。">
+            <img src="assets/images/1000050474.jpg" alt="說明鐵板與重複敲擊的目的。" loading="lazy">
+          </button>
+          <figcaption>說明鐵板與重複敲擊的目的。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050475.jpg" data-caption="教師以現場資料說明取樣率與時間解析能力。" aria-label="放大照片：教師以現場資料說明取樣率與時間解析能力。">
+            <img src="assets/images/1000050475.jpg" alt="教師以現場資料說明取樣率與時間解析能力。" loading="lazy">
+          </button>
+          <figcaption>教師以現場資料說明取樣率與時間解析能力。</figcaption>
+        </figure></div>
+    </section>
+    
+
+    <section class="lesson-stage" id="stage7">
+      <div class="stage-head reveal">
+        <div class="stage-index">07</div>
+        <div>
+          <p class="eyebrow">First arrival、直達波與折射波</p>
+          <h2>從波形找出可以用的證據</h2>
+          <p class="stage-question">「螢幕上一堆波形，哪一個資訊最關鍵？」</p>
+        </div>
+      </div>
+      <div class="stage-copy reveal">
+        <p>敲擊之後，電腦顯示多通道震波紀錄。教師帶學生辨識 first arrival，並比較近距離常由直達波先到、遠距離可能轉由折射波先到的現象。每個 channel 最後都可整理成一組 (distance, arrival time) 資料。</p>
+        <div class="tags"><span class="tag">Waveform</span><span class="tag">First arrival</span><span class="tag">Direct wave</span><span class="tag">Refracted wave</span></div>
+      </div>
+      <div class="photo-grid">
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050476.jpg" data-caption="敲擊後，電腦顯示多通道震波訊號。" aria-label="放大照片：敲擊後，電腦顯示多通道震波訊號。">
+            <img src="assets/images/1000050476.jpg" alt="敲擊後，電腦顯示多通道震波訊號。" loading="lazy">
+          </button>
+          <figcaption>敲擊後，電腦顯示多通道震波訊號。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050480.jpg" data-caption="教師帶學生判讀電腦上的震波與到時。" aria-label="放大照片：教師帶學生判讀電腦上的震波與到時。">
+            <img src="assets/images/1000050480.jpg" alt="教師帶學生判讀電腦上的震波與到時。" loading="lazy">
+          </button>
+          <figcaption>教師帶學生判讀電腦上的震波與到時。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050481.jpg" data-caption="討論直達波、折射波與初達訊號。" aria-label="放大照片：討論直達波、折射波與初達訊號。">
+            <img src="assets/images/1000050481.jpg" alt="討論直達波、折射波與初達訊號。" loading="lazy">
+          </button>
+          <figcaption>討論直達波、折射波與初達訊號。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050482.jpg" data-caption="學生圍繞實測資料進行判讀與提問。" aria-label="放大照片：學生圍繞實測資料進行判讀與提問。">
+            <img src="assets/images/1000050482.jpg" alt="學生圍繞實測資料進行判讀與提問。" loading="lazy">
+          </button>
+          <figcaption>學生圍繞實測資料進行判讀與提問。</figcaption>
+        </figure></div>
+    </section>
+    
+
+    <section class="lesson-stage" id="stage8">
+      <div class="stage-head reveal">
+        <div class="stage-index">08</div>
+        <div>
+          <p class="eyebrow">第一個震源點：操作、觀察、判斷</p>
+          <h2>由學生真正執行量測</h2>
+          <p class="stage-question">「自己產生的資料，夠不夠好到可以拿來建模？」</p>
+        </div>
+      </div>
+      <div class="stage-copy reveal">
+        <p>學生在第一個震源點反覆敲擊，並立即查看自己產生的訊號。重點不只是「完成操作」，而是評估每個 channel 是否有清楚的 first arrival、是否需要再敲、是否可能有接觸不良或環境雜訊。</p>
+        <div class="tags"><span class="tag">Student inquiry</span><span class="tag">Data quality</span><span class="tag">CER</span></div>
+      </div>
+      <div class="photo-grid">
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050491.jpg" data-caption="學生執行第一個震源點的重複敲擊。" aria-label="放大照片：學生執行第一個震源點的重複敲擊。">
+            <img src="assets/images/1000050491.jpg" alt="學生執行第一個震源點的重複敲擊。" loading="lazy">
+          </button>
+          <figcaption>學生執行第一個震源點的重複敲擊。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050493.jpg" data-caption="固定同一位置反覆產生可重複震源。" aria-label="放大照片：固定同一位置反覆產生可重複震源。">
+            <img src="assets/images/1000050493.jpg" alt="固定同一位置反覆產生可重複震源。" loading="lazy">
+          </button>
+          <figcaption>固定同一位置反覆產生可重複震源。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050494.jpg" data-caption="學生敲擊後立即檢查自己的多通道訊號。" aria-label="放大照片：學生敲擊後立即檢查自己的多通道訊號。">
+            <img src="assets/images/1000050494.jpg" alt="學生敲擊後立即檢查自己的多通道訊號。" loading="lazy">
+          </button>
+          <figcaption>學生敲擊後立即檢查自己的多通道訊號。</figcaption>
+        </figure></div>
+    </section>
+    
+
+    <section class="lesson-stage" id="stage9">
+      <div class="stage-head reveal">
+        <div class="stage-index">09</div>
+        <div>
+          <p class="eyebrow">每 4 m 一個 shot point，共 12 點</p>
+          <h2>多震源觀測：0–44 m</h2>
+          <p class="stage-question">「為什麼要一直移動震源，而不是只在一個位置量一次？」</p>
+        </div>
+      </div>
+      <div class="stage-copy reveal">
+        <p>第一個受波器的位置同時是第一個敲擊點，之後每 4 m 設一個震源點，從 0 m 一直到 44 m，共 12 個 shot points。改變的是震源位置，不是地下；因此每一組資料都從新的 source–receiver geometry 檢驗同一個地下模型。</p>
+        <div class="tags"><span class="tag">12 shot points</span><span class="tag">0–44 m</span><span class="tag">4 m spacing</span><span class="tag">Model testing</span></div>
+      </div>
+      <div class="photo-grid">
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050496.jpg" data-caption="Shot 2：4 m。" aria-label="放大照片：Shot 2：4 m。">
+            <img src="assets/images/1000050496.jpg" alt="Shot 2：4 m。" loading="lazy">
+          </button>
+          <figcaption>Shot 2：4 m。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050497.jpg" data-caption="Shot 2：學生在第二個震源位置重複敲擊。" aria-label="放大照片：Shot 2：學生在第二個震源位置重複敲擊。">
+            <img src="assets/images/1000050497.jpg" alt="Shot 2：學生在第二個震源位置重複敲擊。" loading="lazy">
+          </button>
+          <figcaption>Shot 2：學生在第二個震源位置重複敲擊。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050498.jpg" data-caption="Shot 2：完成第二組 source–receiver geometry。" aria-label="放大照片：Shot 2：完成第二組 source–receiver geometry。">
+            <img src="assets/images/1000050498.jpg" alt="Shot 2：完成第二組 source–receiver geometry。" loading="lazy">
+          </button>
+          <figcaption>Shot 2：完成第二組 source–receiver geometry。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050499.jpg" data-caption="Shot 3：8 m。" aria-label="放大照片：Shot 3：8 m。">
+            <img src="assets/images/1000050499.jpg" alt="Shot 3：8 m。" loading="lazy">
+          </button>
+          <figcaption>Shot 3：8 m。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050500.jpg" data-caption="Shot 3：第三個震源位置。" aria-label="放大照片：Shot 3：第三個震源位置。">
+            <img src="assets/images/1000050500.jpg" alt="Shot 3：第三個震源位置。" loading="lazy">
+          </button>
+          <figcaption>Shot 3：第三個震源位置。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050501.jpg" data-caption="Shot 3：完成重複敲擊。" aria-label="放大照片：Shot 3：完成重複敲擊。">
+            <img src="assets/images/1000050501.jpg" alt="Shot 3：完成重複敲擊。" loading="lazy">
+          </button>
+          <figcaption>Shot 3：完成重複敲擊。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050502.jpg" data-caption="Shot 4：12 m。" aria-label="放大照片：Shot 4：12 m。">
+            <img src="assets/images/1000050502.jpg" alt="Shot 4：12 m。" loading="lazy">
+          </button>
+          <figcaption>Shot 4：12 m。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050503.jpg" data-caption="Shot 4：第四個震源位置量測。" aria-label="放大照片：Shot 4：第四個震源位置量測。">
+            <img src="assets/images/1000050503.jpg" alt="Shot 4：第四個震源位置量測。" loading="lazy">
+          </button>
+          <figcaption>Shot 4：第四個震源位置量測。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050504.jpg" data-caption="Shot 5：16 m。" aria-label="放大照片：Shot 5：16 m。">
+            <img src="assets/images/1000050504.jpg" alt="Shot 5：16 m。" loading="lazy">
+          </button>
+          <figcaption>Shot 5：16 m。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050505.jpg" data-caption="Shot 5：第五個震源點。" aria-label="放大照片：Shot 5：第五個震源點。">
+            <img src="assets/images/1000050505.jpg" alt="Shot 5：第五個震源點。" loading="lazy">
+          </button>
+          <figcaption>Shot 5：第五個震源點。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050506.jpg" data-caption="Shot 5：持續增加觀測幾何。" aria-label="放大照片：Shot 5：持續增加觀測幾何。">
+            <img src="assets/images/1000050506.jpg" alt="Shot 5：持續增加觀測幾何。" loading="lazy">
+          </button>
+          <figcaption>Shot 5：持續增加觀測幾何。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050508.jpg" data-caption="Shot 6：20 m。" aria-label="放大照片：Shot 6：20 m。">
+            <img src="assets/images/1000050508.jpg" alt="Shot 6：20 m。" loading="lazy">
+          </button>
+          <figcaption>Shot 6：20 m。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050509.jpg" data-caption="Shot 6：第六組震源資料。" aria-label="放大照片：Shot 6：第六組震源資料。">
+            <img src="assets/images/1000050509.jpg" alt="Shot 6：第六組震源資料。" loading="lazy">
+          </button>
+          <figcaption>Shot 6：第六組震源資料。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050510.jpg" data-caption="Shot 7：24 m。" aria-label="放大照片：Shot 7：24 m。">
+            <img src="assets/images/1000050510.jpg" alt="Shot 7：24 m。" loading="lazy">
+          </button>
+          <figcaption>Shot 7：24 m。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050511.jpg" data-caption="Shot 7：學生在 24 m 處敲擊。" aria-label="放大照片：Shot 7：學生在 24 m 處敲擊。">
+            <img src="assets/images/1000050511.jpg" alt="Shot 7：學生在 24 m 處敲擊。" loading="lazy">
+          </button>
+          <figcaption>Shot 7：學生在 24 m 處敲擊。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050514.jpg" data-caption="Shot 8：28 m。" aria-label="放大照片：Shot 8：28 m。">
+            <img src="assets/images/1000050514.jpg" alt="Shot 8：28 m。" loading="lazy">
+          </button>
+          <figcaption>Shot 8：28 m。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050516.jpg" data-caption="Shot 8：第八個震源點量測。" aria-label="放大照片：Shot 8：第八個震源點量測。">
+            <img src="assets/images/1000050516.jpg" alt="Shot 8：第八個震源點量測。" loading="lazy">
+          </button>
+          <figcaption>Shot 8：第八個震源點量測。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050517.jpg" data-caption="Shot 9：32 m。" aria-label="放大照片：Shot 9：32 m。">
+            <img src="assets/images/1000050517.jpg" alt="Shot 9：32 m。" loading="lazy">
+          </button>
+          <figcaption>Shot 9：32 m。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050521.jpg" data-caption="Shot 10：36 m。" aria-label="放大照片：Shot 10：36 m。">
+            <img src="assets/images/1000050521.jpg" alt="Shot 10：36 m。" loading="lazy">
+          </button>
+          <figcaption>Shot 10：36 m。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050522.jpg" data-caption="Shot 10：第十個震源點。" aria-label="放大照片：Shot 10：第十個震源點。">
+            <img src="assets/images/1000050522.jpg" alt="Shot 10：第十個震源點。" loading="lazy">
+          </button>
+          <figcaption>Shot 10：第十個震源點。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050523.jpg" data-caption="Shot 10：重複敲擊取得穩定資料。" aria-label="放大照片：Shot 10：重複敲擊取得穩定資料。">
+            <img src="assets/images/1000050523.jpg" alt="Shot 10：重複敲擊取得穩定資料。" loading="lazy">
+          </button>
+          <figcaption>Shot 10：重複敲擊取得穩定資料。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050524.jpg" data-caption="Shot 11：40 m。" aria-label="放大照片：Shot 11：40 m。">
+            <img src="assets/images/1000050524.jpg" alt="Shot 11：40 m。" loading="lazy">
+          </button>
+          <figcaption>Shot 11：40 m。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050529.jpg" data-caption="Shot 11：皮尺 40 m 處。" aria-label="放大照片：Shot 11：皮尺 40 m 處。">
+            <img src="assets/images/1000050529.jpg" alt="Shot 11：皮尺 40 m 處。" loading="lazy">
+          </button>
+          <figcaption>Shot 11：皮尺 40 m 處。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050530.jpg" data-caption="Shot 11：延伸觀測距離。" aria-label="放大照片：Shot 11：延伸觀測距離。">
+            <img src="assets/images/1000050530.jpg" alt="Shot 11：延伸觀測距離。" loading="lazy">
+          </button>
+          <figcaption>Shot 11：延伸觀測距離。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050532.jpg" data-caption="Shot 12：44 m。" aria-label="放大照片：Shot 12：44 m。">
+            <img src="assets/images/1000050532.jpg" alt="Shot 12：44 m。" loading="lazy">
+          </button>
+          <figcaption>Shot 12：44 m。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050533.jpg" data-caption="Shot 12：完成最後一個震源位置量測。" aria-label="放大照片：Shot 12：完成最後一個震源位置量測。">
+            <img src="assets/images/1000050533.jpg" alt="Shot 12：完成最後一個震源位置量測。" loading="lazy">
+          </button>
+          <figcaption>Shot 12：完成最後一個震源位置量測。</figcaption>
+        </figure></div>
+    </section>
+    
+
+    <section class="lesson-stage" id="stage10">
+      <div class="stage-head reveal">
+        <div class="stage-index">10</div>
+        <div>
+          <p class="eyebrow">場地復原、器材管理與後續建模</p>
+          <h2>實驗完成，但科學工作還沒有結束</h2>
+          <p class="stage-question">「量完資料之後，下一個真正的科學問題是什麼？」</p>
+        </div>
+      </div>
+      <div class="stage-copy reveal">
+        <p>學生共同拆除受波器與訊號線、清點器材並回復場地。野外資料蒐集結束後，真正的分析才開始：挑選 first arrivals、建立 travel-time curve、檢查斜率改變，再提出、檢驗與修正地下速度模型。</p>
+        <div class="tags"><span class="tag">Fieldwork</span><span class="tag">Responsibility</span><span class="tag">Model revision</span></div>
+      </div>
+      <div class="photo-grid">
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050537.jpg" data-caption="學生分類與收整受波器及訊號線。" aria-label="放大照片：學生分類與收整受波器及訊號線。">
+            <img src="assets/images/1000050537.jpg" alt="學生分類與收整受波器及訊號線。" loading="lazy">
+          </button>
+          <figcaption>學生分類與收整受波器及訊號線。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050538.jpg" data-caption="沿測線回收線材與感測器。" aria-label="放大照片：沿測線回收線材與感測器。">
+            <img src="assets/images/1000050538.jpg" alt="沿測線回收線材與感測器。" loading="lazy">
+          </button>
+          <figcaption>沿測線回收線材與感測器。</figcaption>
+        </figure>
+
+        <figure class="photo-card reveal">
+          <button class="photo-button" data-src="assets/images/1000050539.jpg" data-caption="團隊共同完成場地回復與器材清點。" aria-label="放大照片：團隊共同完成場地回復與器材清點。">
+            <img src="assets/images/1000050539.jpg" alt="團隊共同完成場地回復與器材清點。" loading="lazy">
+          </button>
+          <figcaption>團隊共同完成場地回復與器材清點。</figcaption>
+        </figure></div>
+    </section>
+    
+
+    <section class="interactive-section" id="shot-lab">
+      <div class="section-title reveal">
+        <p class="eyebrow">INTERACTIVE 01</p>
+        <h2>12 個震源點，不是重複做 12 次</h2>
+        <p>每次只改變震源位置，便得到新的 source–receiver geometry。點選任一震源，觀察它如何改變與受波器位置的相對距離。</p>
+      </div>
+
+      <div class="shot-card reveal">
+        <div class="shot-line" id="shotLine"></div>
+        <div class="shot-readout">
+          <div><span>目前震源</span><strong id="shotLabel">S1 · 0 m</strong></div>
+          <div><span>自訂受波器位置</span><strong><span id="receiverValue">24</span> m</strong></div>
+          <div><span>震源—受波器距離</span><strong id="distanceValue">24 m</strong></div>
+        </div>
+        <label class="range-label">拖曳受波器位置
+          <input id="receiverSlider" type="range" min="0" max="60" step="1" value="24">
+        </label>
+        <p class="formula">d = |x<sub>receiver</sub> − x<sub>source</sub>|</p>
+      </div>
+    </section>
+
+    <section class="interactive-section dark" id="model-lab">
+      <div class="section-title reveal">
+        <p class="eyebrow">INTERACTIVE 02</p>
+        <h2>為什麼會出現兩種斜率？</h2>
+        <p>先假設地下是兩層水平介質。調整速度與深度，觀察直達波與折射波的理論走時。這是<strong>教學示意模型</strong>，不是本次實測反演結果。</p>
+      </div>
+
+      <div class="model-lab-grid reveal">
+        <div class="controls">
+          <label>上層速度 V₁ <output id="v1Out">300</output> m/s
+            <input id="v1" type="range" min="150" max="700" value="300" step="10">
+          </label>
+          <label>下層速度 V₂ <output id="v2Out">900</output> m/s
+            <input id="v2" type="range" min="400" max="1800" value="900" step="20">
+          </label>
+          <label>界面深度 h <output id="hOut">2.5</output> m
+            <input id="depth" type="range" min="0.5" max="6" value="2.5" step="0.1">
+          </label>
+          <div class="model-note">
+            <b>觀察重點</b>
+            <p>近距離常由直達波先到；距離拉長後，經高速下層傳播的折射波可能反而先到。</p>
+          </div>
+        </div>
+
+        <div class="viz-wrap">
+          <svg id="travelChart" viewBox="0 0 760 420" role="img" aria-label="直達波與折射波走時示意圖"></svg>
+          <div class="viz-legend">
+            <span><i class="dot direct"></i>直達波</span>
+            <span><i class="dot refracted"></i>折射波</span>
+            <span><i class="dot first"></i>First arrival</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="insight reveal">
+        <p class="big-quote">「走得最短，不一定最早到。」</p>
+        <p>當資料無法再由單一斜率解釋時，學生就有理由修正原來的「均勻地下」模型，提出至少兩層、速度不同的地下結構。</p>
+      </div>
+    </section>
+
+    <section class="cer-section" id="reflection">
+      <div class="section-title reveal">
+        <p class="eyebrow">CER CHECKPOINT</p>
+        <h2>把觀測變成可以辯護的解釋</h2>
+      </div>
+      <div class="cer-grid">
+        <article class="reveal">
+          <span>C · Claim</span>
+          <h3>提出模型</h3>
+          <p>地下可能不是單一均勻介質，而至少存在兩個速度不同的層。</p>
+        </article>
+        <article class="reveal">
+          <span>E · Evidence</span>
+          <h3>指出證據</h3>
+          <p>distance–time 資料呈現兩段不同斜率，且遠距離 first arrival 的趨勢改變。</p>
+        </article>
+        <article class="reveal">
+          <span>R · Reasoning</span>
+          <h3>連結證據與模型</h3>
+          <p>在 t–x 圖上斜率為 1/v；斜率改變代表控制 first arrival 的傳播速度與路徑發生改變。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="application-section">
+      <div class="section-title reveal">
+        <p class="eyebrow">STUDENT QUESTION</p>
+        <h2>「這個實驗可以看到什麼？實際應用在哪裡？」</h2>
+      </div>
+      <div class="application-grid reveal">
+        <div>
+          <h3>它不是地下照片</h3>
+          <p>震測首先提供的是速度差異與界面可能的位置；再結合地質、鑽井或其他資料，推論地下材料與構造。</p>
+        </div>
+        <div>
+          <h3>它可以協助我們</h3>
+          <p>估計岩盤深度、風化或鬆散層厚度、工程基地地下條件、邊坡與地質結構，以及其他近地表地球物理問題。</p>
+        </div>
+        <div>
+          <h3>更大的科學問題</h3>
+          <p>人類如何研究一個無法直接看見的世界？地球物理的核心，就是用可觀測的證據建立對不可見結構的模型。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="video-section">
+      <div class="section-title reveal">
+        <p class="eyebrow">FIELD VIDEO</p>
+        <h2>現場影片</h2>
+        <p>本專案也保留了實驗現場影片，可直接在 GitHub Pages 上播放。</p>
+      </div>
+      <div class="video-frame reveal">
+        <video controls preload="metadata">
+          <source src="assets/video/1000050534.mp4" type="video/mp4">
+          您的瀏覽器不支援影片播放。
+        </video>
+      </div>
+    </section>
+
+    <section class="closing">
+      <p class="eyebrow">TAKEAWAY</p>
+      <h2>科學不只是「看見」。</h2>
+      <p>真正的科學，是利用觀測與證據，建立能夠解釋世界的模型，並持續用新的資料檢驗與修正它。</p>
+      <a class="btn primary" href="#top">回到頁首 ↑</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>校園折射震測 × 科學探究 × 科學建模｜GitHub Pages-ready static site</p>
+    <p><a class="footer-back" href="../#field">← 回到「地球物理通論」課堂頁</a></p>
+  </footer>
+
+  <dialog id="lightbox">
+    <button id="lightboxClose" aria-label="關閉">×</button>
+    <img id="lightboxImg" alt="">
+    <p id="lightboxCaption"></p>
+  </dialog>
+
+  <script>
+    const shotPoints = [{"n": 1, "x": 0}, {"n": 2, "x": 4}, {"n": 3, "x": 8}, {"n": 4, "x": 12}, {"n": 5, "x": 16}, {"n": 6, "x": 20}, {"n": 7, "x": 24}, {"n": 8, "x": 28}, {"n": 9, "x": 32}, {"n": 10, "x": 36}, {"n": 11, "x": 40}, {"n": 12, "x": 44}];
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

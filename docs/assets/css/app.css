@@ -558,6 +558,59 @@ details.card summary {
 }
 .link-card--lagoon:hover .link-card__arrow { color: var(--lagoon); }
 
+/* ── 校園折射震測（新增專題）──────────────────────── */
+a.btn { display: inline-block; text-decoration: none; color: var(--ink); }
+a.btn.primary { color: #f7f2ea; }
+a.btn.magma { color: #fff; }
+.link-card--gold { border-top: 4px solid var(--gold); }
+.link-card--gold:hover { border-color: var(--gold); }
+.link-card--gold .link-card__label { color: color-mix(in srgb, var(--gold) 62%, var(--ink)); }
+.link-card--gold:hover .link-card__arrow { color: var(--gold); }
+.field-crosslink { margin: 1.2rem 0; }
+
+.field-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+.field-metric {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--gold);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 0.9rem 1rem;
+  text-align: center;
+}
+.field-metric strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.7rem;
+  line-height: 1.2;
+  color: var(--ocean);
+}
+.field-metric span { font-size: 0.88rem; color: var(--ink-soft); }
+
+.field-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+  margin: 0 0 1.4rem;
+}
+.field-strip img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+@media (max-width: 860px) {
+  .field-metrics { grid-template-columns: repeat(2, 1fr); }
+  .field-strip { grid-template-columns: repeat(2, 1fr); }
+  .field-strip img { height: 140px; }
+}
+
 @media print {
   .app-header, .dock, .row-actions, .nav-wrap { display: none !important; }
   .view { display: block !important; break-inside: avoid; }

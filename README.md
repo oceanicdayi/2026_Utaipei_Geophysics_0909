@@ -10,6 +10,8 @@
 
 **課堂互動頁（GitHub Pages）：** [https://oceanicdayi.github.io/2026_Utaipei_Geophysics_0909/](https://oceanicdayi.github.io/2026_Utaipei_Geophysics_0909/)
 
+**校園折射震測實驗網站：** [https://oceanicdayi.github.io/2026_Utaipei_Geophysics_0909/seismic-inquiry/](https://oceanicdayi.github.io/2026_Utaipei_Geophysics_0909/seismic-inquiry/)（12 個震源點、60 張現場照片、互動建模與現場影片；課堂頁「校園震測」分頁有簡介）
+
 投影機上課、學生筆電同步皆可使用：章節切換、任務勾選、課堂計時、地球物理導論與正演／反演、折射建模逐格揭露、CER 白板、DEAR 循環、CLIL 全班朗讀、Gemini Prompt 一鍵複製、Exit Ticket。
 
 本倉庫整理《地球物理通論》第一堂課的完整教材：互動課堂頁、Marp 簡報原稿、三小時中英文對照講稿、CLIL 句型附錄、PyGMT 示範筆記本、概念圖，以及對應 PDF。這份 README 把上述資料的內容整編成一份可直接閱讀的課程手冊。
@@ -83,6 +85,7 @@
 | 檔案 | 類型 | 說明 |
 |---|---|---|
 | `docs/` | 課堂互動網站 | GitHub Pages 來源。`index.html` 為單頁課堂工具，含 CSS／JS、概念圖、地球物理導論圖與折射建模逐格揭露。 |
+| `docs/seismic-inquiry/` | 校園折射震測網站 | 獨立的靜態子網站（`index.html`、`style.css`、`script.js`、60 張現場照片與 1 支現場影片），由課堂頁「校園震測」分頁與開場「相關連結」連入。 |
 | `.github/workflows/pages.yml` | GitHub Actions | 推送到 `main` 後自動部署 GitHub Pages。 |
 | `Geophysics_day1_完整文字與圖片.md` | 導論原稿 | 自 Hugging Face Space `oceanicdayi/Geophysics_day1` 擷取的地球物理介紹、正演／反演、約束、應用與資料環境。 |
 | `what_is_geophysics.md` | 短定義 | 地質學看景觀、地球物理學是地質與物理的跨領域。 |
