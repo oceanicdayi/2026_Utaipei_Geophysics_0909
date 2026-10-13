@@ -1,0 +1,6 @@
+# 震測原始資料為二進位，禁止任何行尾或編碼轉換
+*.sgy binary
+*.dat binary
+*.pdf binary
+*.geom -text
+*.csv -text

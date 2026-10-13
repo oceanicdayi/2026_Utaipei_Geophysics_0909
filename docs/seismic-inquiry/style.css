@@ -198,3 +198,63 @@ dialog::backdrop{background:rgba(0,0,0,.76)}
 }
 .back-link:hover,.back-link:focus-visible{background:rgba(255,255,255,.2)}
 .footer-back{color:inherit;font-weight:700}
+
+/* ── 實驗紀錄 / 實驗結果 ── */
+.record-section,.results-section{
+  max-width:1280px;margin:0 auto;padding:120px 48px 0
+}
+.record-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:start}
+.spec-card{background:var(--card);border-radius:20px;padding:30px 32px;box-shadow:var(--shadow);border:1px solid rgba(20,33,29,.05)}
+.spec-card h3{margin:0 0 18px;font-size:1.32rem}
+.spec-table{width:100%;border-collapse:collapse;font-size:.95rem}
+.spec-table th,.spec-table td{text-align:left;padding:10px 6px;border-bottom:1px solid #ecebe3;vertical-align:top}
+.spec-table th{color:var(--muted);font-weight:700;white-space:nowrap;width:38%}
+.spec-table code{background:#eef0ea;padding:1px 6px;border-radius:6px;font-size:.88em}
+.note-card{background:#eef1e9;border:1px solid #dde2d6;box-shadow:none}
+.note-list{margin:0;padding-left:20px;color:#39443f;line-height:1.75}
+.note-list li{margin-bottom:12px}
+.note-list li:last-child{margin-bottom:0}
+.block-head{font-size:1.7rem;margin:52px 0 18px}
+.table-wrap{overflow-x:auto;background:var(--card);border-radius:20px;box-shadow:var(--shadow);border:1px solid rgba(20,33,29,.05)}
+.shot-table{width:100%;border-collapse:collapse;font-size:.95rem;min-width:620px}
+.shot-table th,.shot-table td{padding:13px 18px;text-align:left;border-bottom:1px solid #eeede6;white-space:nowrap}
+.shot-table thead th{background:#eef1e9;color:var(--forest);font-weight:800;font-size:.85rem;letter-spacing:.04em}
+.shot-table tbody tr:last-child td{border-bottom:0}
+.shot-table tr.warn td{background:#fdf2ea}
+.shot-table tr.warn td:nth-child(5){color:var(--orange);font-weight:900}
+.table-note{margin-top:16px;color:var(--muted);font-size:.93rem;max-width:900px}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:42px}
+.kpi{background:var(--forest);color:#fff;border-radius:20px;padding:26px 24px}
+.kpi strong{display:block;font-size:2.3rem;line-height:1;letter-spacing:-.03em;color:#d9e5c8}
+.kpi span{display:block;margin-top:10px;font-weight:800;font-size:.95rem}
+.kpi small{display:block;margin-top:5px;font-weight:400;font-size:.83rem;color:rgba(255,255,255,.65)}
+.chart-card{background:var(--card);border-radius:24px;padding:34px 36px;box-shadow:var(--shadow);border:1px solid rgba(20,33,29,.05);margin-bottom:26px}
+.chart-card h3{margin:0 0 12px;font-size:1.6rem;letter-spacing:-.02em}
+.chart-card>p{color:#39443f;max-width:900px}
+.chart-card svg{width:100%;height:auto;margin:14px 0 6px}
+.chart-note{color:var(--muted);font-size:.92rem;max-width:900px;margin-top:14px}
+.tx-table{min-width:420px}
+.tx-table td,.tx-table th{white-space:nowrap}
+.tx-table thead th{color:var(--forest);font-weight:800}
+.caveat{background:#2a1c14;color:#fff;border-radius:24px;padding:38px 40px;margin-bottom:26px}
+.caveat .eyebrow{color:#f0ba65}
+.caveat h3{margin:0 0 16px;font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:-.03em;color:#ffd9a8}
+.caveat p{color:rgba(255,255,255,.82);max-width:980px;line-height:1.8}
+.caveat b{color:#fff}
+.data-block{background:var(--card);border-radius:24px;padding:34px 36px;box-shadow:var(--shadow);border:1px solid rgba(20,33,29,.05)}
+.data-block h3{margin:0 0 10px;font-size:1.5rem}
+.data-list{list-style:none;margin:20px 0 0;padding:0}
+.data-list li{display:grid;grid-template-columns:260px 1fr;gap:16px;padding:14px 0;border-top:1px solid #eeede6;align-items:baseline}
+.data-list a{font-weight:800;color:var(--forest);text-decoration:underline;text-underline-offset:3px;word-break:break-all}
+.data-list span{color:var(--muted);font-size:.93rem}
+@media (max-width:900px){
+  .record-grid{grid-template-columns:1fr}
+  .kpi-row{grid-template-columns:1fr 1fr}
+  .data-list li{grid-template-columns:1fr;gap:4px}
+}
+@media (max-width:640px){
+  .record-section,.results-section{padding-left:18px;padding-right:18px}
+  .chart-card,.data-block,.caveat{padding:24px 20px}
+  .spec-card{padding:24px 22px}
+  .kpi-row{grid-template-columns:1fr}
+}

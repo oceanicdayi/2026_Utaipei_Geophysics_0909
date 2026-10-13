@@ -103,3 +103,82 @@ function drawChart(){
   svg.appendChild(title);
 }
 [v1,v2,depth].forEach(el=>el.addEventListener('input',drawChart)); drawChart();
+
+/* ───────── 實測結果圖表（資料來自 results-data.js） ───────── */
+(function(){
+  if (typeof measured === 'undefined') return;
+  const NSV='http://www.w3.org/2000/svg';
+  const E=(tag,attrs={})=>{const e=document.createElementNS(NSV,tag);
+    Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));return e;};
+  const txt=(el,x,y,s,o={})=>{const t=E('text',Object.assign({x,y},o));t.textContent=s;el.appendChild(t);};
+
+  function frame(svg,W,H,m,xmax,ymin,ymax,xlab,ylab,ystep){
+    svg.innerHTML='';
+    const iw=W-m.l-m.r, ih=H-m.t-m.b;
+    const X=v=>m.l+v/xmax*iw, Y=v=>m.t+ih-(v-ymin)/(ymax-ymin)*ih;
+    for(let x=0;x<=xmax;x+=xmax/6){
+      svg.appendChild(E('line',{x1:X(x),y1:m.t,x2:X(x),y2:m.t+ih,stroke:'#e8e8e2','stroke-width':1}));
+      txt(svg,X(x),H-26,Math.round(x),{'text-anchor':'middle',fill:'#6f7874','font-size':12});
+    }
+    for(let v=ymin;v<=ymax+1e-9;v+=ystep){
+      svg.appendChild(E('line',{x1:m.l,y1:Y(v),x2:W-m.r,y2:Y(v),stroke:'#ecece7','stroke-width':1}));
+      txt(svg,m.l-11,Y(v)+4,Math.round(v),{'text-anchor':'end',fill:'#6f7874','font-size':12});
+    }
+    svg.appendChild(E('line',{x1:m.l,y1:m.t,x2:m.l,y2:m.t+ih,stroke:'#88918d','stroke-width':1.4}));
+    svg.appendChild(E('line',{x1:m.l,y1:m.t+ih,x2:W-m.r,y2:m.t+ih,stroke:'#88918d','stroke-width':1.4}));
+    txt(svg,m.l+iw/2,H-6,xlab,{'text-anchor':'middle',fill:'#43504a','font-size':13,'font-weight':700});
+    txt(svg,17,m.t+ih/2,ylab,{transform:`rotate(-90 17 ${m.t+ih/2})`,'text-anchor':'middle',
+        fill:'#43504a','font-size':13,'font-weight':700});
+    return {X,Y,iw,ih};
+  }
+
+  /* 圖一：訊噪比 vs 支距 */
+  const snrSvg=document.getElementById('snrChart');
+  if(snrSvg){
+    const W=760,H=380,m={l:62,r:24,t:26,b:52};
+    const g=frame(snrSvg,W,H,m,48,-10,70,'|支距| (m)','SNR (dB)',10);
+    measured.snr.forEach(([x,v])=>{
+      snrSvg.appendChild(E('circle',{cx:g.X(x),cy:g.Y(Math.max(-10,Math.min(70,v))),r:3,
+        fill:v>=25?'#557a69':'#c2653f','fill-opacity':.5}));
+    });
+    snrSvg.appendChild(E('path',{d:measured.snrBins.map((b,i)=>`${i?'L':'M'} ${g.X(b[0]).toFixed(1)} ${g.Y(b[1]).toFixed(1)}`).join(' '),
+      fill:'none',stroke:'#1d2c26','stroke-width':3}));
+    measured.snrBins.forEach(b=>snrSvg.appendChild(E('circle',{cx:g.X(b[0]),cy:g.Y(b[1]),r:5,fill:'#1d2c26'})));
+    snrSvg.appendChild(E('line',{x1:m.l,y1:g.Y(12),x2:W-m.r,y2:g.Y(12),stroke:'#9aa39e','stroke-width':1.6,'stroke-dasharray':'6 5'}));
+    txt(snrSvg,W-m.r-6,g.Y(12)-8,'12 dB 可用門檻',{'text-anchor':'end',fill:'#6a716e','font-size':12});
+    txt(snrSvg,m.l+8,m.t+16,'粗線 = 每 4 m 的中位數',{fill:'#1d2c26','font-size':12,'font-weight':700});
+  }
+
+  /* 圖二：初達波走時 t–x */
+  const txSvg=document.getElementById('txChart');
+  if(txSvg){
+    const W=760,H=420,m={l:62,r:24,t:26,b:52},XMAX=24,YMAX=60;
+    const g=frame(txSvg,W,H,m,XMAX,0,YMAX,'|支距| (m)','First-arrival time (ms)',10);
+    [[300,'#c2653f'],[600,'#557a69']].forEach(([v,c])=>{
+      const xEnd=Math.min(XMAX, YMAX/1000*v), yEnd=xEnd/v*1000;
+      txSvg.appendChild(E('line',{x1:g.X(0),y1:g.Y(0),x2:g.X(xEnd),y2:g.Y(yEnd),
+        stroke:c,'stroke-width':1.5,'stroke-dasharray':'5 5','stroke-opacity':.75}));
+      txSvg.appendChild(E('text',{x:g.X(xEnd)-6,y:g.Y(yEnd)+16,'text-anchor':'end',
+        fill:c,'font-size':12,'font-weight':700})).textContent=v+' m/s';
+    });
+    measured.picks.forEach(([x,t])=>{
+      if(x<=XMAX&&t<=YMAX) txSvg.appendChild(E('circle',{cx:g.X(x),cy:g.Y(t),r:3.2,fill:'#7d9a68','fill-opacity':.55}));
+    });
+    const solid=measured.txBins.filter(b=>b[0]<=XMAX&&b[2]>=10);
+    const weak =measured.txBins.filter(b=>b[0]<=XMAX&&b[2]<10);
+    txSvg.appendChild(E('path',{d:solid.map((b,i)=>`${i?'L':'M'} ${g.X(b[0]).toFixed(1)} ${g.Y(b[1]).toFixed(1)}`).join(' '),
+      fill:'none',stroke:'#1d2c26','stroke-width':3}));
+    solid.forEach(b=>{
+      txSvg.appendChild(E('circle',{cx:g.X(b[0]),cy:g.Y(b[1]),r:5,fill:'#1d2c26'}));
+      txt(txSvg,g.X(b[0]),g.Y(b[1])-12,b[3]+'',{'text-anchor':'middle',fill:'#1d2c26','font-size':11,'font-weight':700});
+    });
+    weak.forEach(b=>{
+      txSvg.appendChild(E('circle',{cx:g.X(b[0]),cy:g.Y(b[1]),r:5,fill:'none',stroke:'#9aa39e','stroke-width':2}));
+      txt(txSvg,g.X(b[0]),g.Y(b[1])-12,b[3]+'',{'text-anchor':'middle',fill:'#9aa39e','font-size':11,'font-weight':700});
+    });
+    txt(txSvg,m.l+8,m.t+16,'粗線 = 每 2 m 中位數（≥10 道），數字為該點視速度 (m/s)',
+        {fill:'#1d2c26','font-size':12,'font-weight':700});
+    txt(txSvg,m.l+8,m.t+32,'空心點 = 不足 10 道，可信度低',
+        {fill:'#9aa39e','font-size':12,'font-weight':700});
+  }
+})();

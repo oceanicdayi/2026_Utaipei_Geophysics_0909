@@ -1,39 +1,68 @@
 # 校園折射震測 × 科學建模 教學網站
 
-> **備註：** 本資料夾已併入「地球物理通論」課堂頁倉庫的 GitHub Pages（`docs/seismic-inquiry/`），網址為 `…/2026_Utaipei_Geophysics_0909/seismic-inquiry/`。下方的「部署到 GitHub Pages」步驟是此網站獨立部署時的說明，在本倉庫中不需要再做。
+> **備註：** 本資料夾已併入「地球物理通論」課堂頁倉庫的 GitHub Pages（`docs/seismic-inquiry/`），網址為 `…/2026_Utaipei_Geophysics_0909/seismic-inquiry/`。
 
-這是一個可直接部署到 **GitHub Pages** 的純靜態網站。
+這是一個可直接部署到 **GitHub Pages** 的純靜態網站，記錄 2026-10-07 於臺北市立大學圖書館後方進行的淺層折射震測實習，並公開當天取得的全部實測資料。
 
 ## 內容
-- 完整納入本次對話提供的 **60 張現場照片**
-- 12 個震源點：0–44 m，每 4 m 一點
-- 實驗流程：儀器 → 量距 → 受波器 → 接線 → 震源 → 取樣 → 波形 → first arrival → 多震源觀測 → 場地復原
-- 互動式震源位置／source–receiver distance 練習
-- 互動式兩層速度模型與 travel-time curve
-- CER 科學論證與科學建模收束
-- 現場影片（assets/video/1000050534.mp4）
 
-## 部署到 GitHub Pages
-1. 建立新的 GitHub repository。
-2. 將此資料夾內的所有檔案上傳到 repository 根目錄。
-3. 進入 **Settings → Pages**。
-4. 在 **Build and deployment** 選擇 `Deploy from a branch`。
-5. Branch 選 `main`，Folder 選 `/ (root)`，儲存。
-6. 等待 GitHub 產生網站網址。
+- **探究歷程**：10 個階段，完整納入 **60 張現場照片**與現場影片
+- **實驗紀錄（`#record`）**：野外紀錄紙上的全部觀測參數、12 炮施作紀錄（含各炮疊加次數）
+- **實驗結果（`#results`）**：288 道實測資料的訊噪比分析、初達波走時曲線、互換時間檢核，以及原始資料下載
+- **互動模組**：震源位置／source–receiver distance、兩層速度模型 travel-time curve
+- **CER 科學論證**與科學建模收束
+
+## 當天的觀測參數（取自野外紀錄紙）
+
+| 項目 | 數值 |
+|---|---|
+| 測線 | `202610_UTELS`，北市大圖書館後方，由北向南 |
+| 記錄儀器 | Geometrics DAS-1 NZ，24 通道 |
+| 震源 | 鐵鎚敲擊鐵板，同點重複敲擊疊加（實際 3–15 次不等） |
+| 受波器 | 24 支，間距 **2 m**，展距 **0–46 m** |
+| 震源 | 12 炮，間距 **4 m**，範圍 **0–44 m** |
+| 時間取樣 | **0.25 ms**（2000 樣本／道） |
+| 紀錄長度 | **0.5 s** |
+| 濾波 | Low Cut / High Cut / Notch 全部關閉 |
+
+> ⚠️ **震源範圍 0–44 m 不等於測線長度。** 受波器實際涵蓋 0–46 m。
+> ⚠️ 原始 SEG-2 檔頭中的 `RECEIVER_LOCATION`（0–23，間距 1 m）與 `SOURCE_LOCATION`（全部為 4.00）是**儀器預設值**，不是現場幾何；真實幾何請用 `data/202610_UTELS.geom` 或 SEG-Y 檔頭。
+
+## 實驗結果摘要
+
+全部由 `data/202610_UTELS.sgy`（288 道）計算，方法與數值標示於網頁 `#results` 區塊：
+
+- 288 道全部有訊號，無死道
+- 近支距訊噪比中位數約 56 dB；**超過約 30 m 後中位 SNR 低於 12 dB**，初達波埋入雜訊
+- 205 / 288 道（71%）SNR ≥ 25 dB
+- 資料中能量最強的是**表面波（ground roll）**，視速度僅約 127 m/s
+- 初達波視速度**隨支距上升**：2 m 處約 320 m/s → 16 m 處約 630 m/s
+- 單一直線擬合視速度約 546 m/s，但殘差 rms 達 9.6 ms — 單層模型解釋不了這組資料
+- 互換時間檢核：35 組配對，中位差 1.3 ms
+
+**網站刻意不提供 V₁、V₂ 與界面深度的「標準答案」。** 頁面上的初達波是自動挑選（AIC）的參考基線，殘差仍大；要得到可辯護的速度模型必須人工逐道判讀。互動模組中的 300／900 m/s、2.5 m 是教學示意參數，網站已明確標示不代表實測反演結果。
 
 ## 檔案結構
+
 ```text
-index.html
-style.css
-script.js
+index.html          # 教學內容與各區塊
+style.css           # 版面
+script.js           # 互動模組 + 實驗結果圖表
+results-data.js     # 實測分析結果（SNR、初達波挑選、分組統計）
 .nojekyll
 assets/
-  images/   # 60 張現場照片
-  video/    # 現場影片
+  images/           # 60 張現場照片
+  video/            # 現場影片
+data/
+  202610_UTELS.sgy          # SEG-Y，288 道，幾何已套入（建議由此開始）
+  seg2/101.dat … 112.dat    # 儀器直出的 SEG-2 原始檔
+  202610_UTELS.geom         # 幾何定義檔
+  202610_UTELS.pdf          # 12 頁 shot gather（0–0.1 s），可列印做人工挑選
+  auto_first_breaks.csv     # 自動挑選結果與每道 SNR
+  202610_UTELS_野外紀錄紙.pdf
+  202610_UTELS_當日活動紀錄.md
 ```
 
 ## 修改文字
-主要教學內容都在 `index.html`；版面在 `style.css`；互動功能在 `script.js`。
 
-## 備註
-互動式兩層模型中的速度與深度是「教學示意參數」，網站已明確標示不代表本次實測反演結果。
+教學內容在 `index.html`；版面在 `style.css`；互動與圖表在 `script.js`；實測數值在 `results-data.js`（由 SEG-Y 計算後產生，不要手改）。
