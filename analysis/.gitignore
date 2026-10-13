@@ -1,0 +1,5 @@
+# 執行後產生的圖檔與 CSV，可由 python scripts/run_all.py 重新產生
+figures/
+__pycache__/
+.pytest_cache/
+.venv/

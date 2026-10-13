@@ -18,6 +18,7 @@
         <a href="#story">探究歷程</a>
         <a href="#record">實驗紀錄</a>
         <a href="#results">實驗結果</a>
+        <a href="#code">分析程式</a>
         <a href="#shot-lab">震源互動</a>
         <a href="#model-lab">建模實驗室</a>
         <a href="#reflection">課程收束</a>
@@ -306,7 +307,8 @@
         </div>
       </div>
       <div class="stage-copy reveal">
-        <p>教師說明如何決定 shot point、為什麼使用鐵板作為穩定的震源耦合面，以及如何在同一位置重複敲擊並疊加，提高訊噪比。也進一步說明取樣率與時間解析能力的關係：取樣越密，越能精細判讀毫秒等級的到時差。本次設定為<b>取樣間隔 0.25 ms、紀錄長度 0.5 s、不加任何濾波</b>；各炮實際疊加 <b>3 到 15 次</b>不等——這個差異後來真的出現在資料品質上，見<a href="#results">實驗結果</a>。</p>
+        <p>教師說明如何決定 shot point、為什麼使用鐵板作為穩定的震源耦合面，以及如何在同一位置重複敲擊並疊加，提高訊噪比。也進一步說明取樣率與時間解析能力的關係：取樣越密，越能精細判讀毫秒等級的到時差。本次設定為<b>取樣間隔 0.25 ms、紀錄長度 0.5 s、不加任何濾波</b>；各炮實際疊加 <b>3 到 15 次</b>不等——這個差異後來真的出現在資料品質上，見<a href="#results">實驗結果</a>
+        <a href="#code">分析程式</a>。</p>
         <div class="tags"><span class="tag">Repeatability</span><span class="tag">Stacking</span><span class="tag">Sampling rate</span><span class="tag">SNR</span></div>
       </div>
       <div class="photo-grid">
@@ -718,14 +720,14 @@
       <div class="section-title reveal">
         <p class="eyebrow">WHAT THE DATA ACTUALLY SAYS</p>
         <h2>資料回來了。<br>它告訴我們什麼，又不告訴我們什麼？</h2>
-        <p>以下是直接從 <code>202610_UTELS.sgy</code>（288 道）計算出來的結果。訊噪比由 40&ndash;400&nbsp;Hz 帶通後的早期波場與 0.40&ndash;0.50&nbsp;s 末端視窗比較得到；初達波為自動挑選（AIC）。</p>
+        <p>以下每個數字都是從 <code>202610_UTELS.sgy</code>（288 道）算出來的，計算用的 Python 程式<b>完整公開</b>（見<a href="#code">分析程式</a>），任何人跑一次都會得到一樣的結果。訊噪比由 40&ndash;400&nbsp;Hz 零相位帶通後的早期波場與 0.40&ndash;0.50&nbsp;s 末端視窗比較得到；初達波為自動挑選（AIC）。</p>
       </div>
 
       <div class="kpi-row reveal">
         <div class="kpi"><strong>288</strong><span>總紀錄道數<small>12 炮 × 24 道，無死道</small></span></div>
-        <div class="kpi"><strong>205</strong><span>可用道數<small>SNR ≥ 25 dB（71%）</small></span></div>
+        <div class="kpi"><strong>206</strong><span>可用道數<small>SNR ≥ 25 dB（72%）</small></span></div>
         <div class="kpi"><strong>~30 m</strong><span>有效支距上限<small>超過後中位 SNR &lt; 12 dB</small></span></div>
-        <div class="kpi"><strong>1.3 ms</strong><span>互換時間中位差<small>35 組互換配對</small></span></div>
+        <div class="kpi"><strong>1.5 ms</strong><span>互換時間中位差<small>35 組互換配對</small></span></div>
       </div>
 
       <div class="chart-card reveal">
@@ -737,31 +739,56 @@
 
       <div class="chart-card reveal">
         <h3>結果二：初達波的視速度確實隨支距變快</h3>
-        <p>把所有 SNR ≥ 30&nbsp;dB 的自動挑選結果疊在同一張 t&ndash;x 圖上。單一直線擬合得到視速度約 <b>546 m/s</b>，但殘差 rms 高達 <b>9.6 ms</b>&mdash;&mdash;單一速度解釋不了這組資料。</p>
+        <p>把所有 SNR ≥ 30&nbsp;dB 的自動挑選結果疊在同一張 t&ndash;x 圖上。單一直線擬合得到視速度約 <b>470 m/s</b>，但殘差 rms 高達 <b>11.1 ms</b>&mdash;&mdash;單一速度解釋不了這組資料。</p>
         <svg id="txChart" viewBox="0 0 760 420" role="img" aria-label="初達波走時與支距關係圖"></svg>
         <div class="table-wrap">
           <table class="spec-table tx-table">
-            <thead><tr><th>支距</th><th>道數</th><th>中位到時</th><th>視速度</th></tr></thead>
+            <thead><tr><th>支距</th><th>道數</th><th>中位到時</th><th>視速度</th><th>穩定度</th></tr></thead>
             <tbody>
-          <tr><td>2 m</td><td>23</td><td>6.2 ms</td><td><b>320 m/s</b></td></tr>
-          <tr><td>4 m</td><td>22</td><td>13.4 ms</td><td><b>299 m/s</b></td></tr>
-          <tr><td>6 m</td><td>21</td><td>16.2 ms</td><td><b>369 m/s</b></td></tr>
-          <tr><td>8 m</td><td>20</td><td>15.0 ms</td><td><b>533 m/s</b></td></tr>
-          <tr><td>10 m</td><td>19</td><td>19.0 ms</td><td><b>526 m/s</b></td></tr>
-          <tr><td>12 m</td><td>16</td><td>19.9 ms</td><td><b>604 m/s</b></td></tr>
-          <tr><td>14 m</td><td>16</td><td>24.5 ms</td><td><b>571 m/s</b></td></tr>
-          <tr><td>16 m</td><td>11</td><td>25.2 ms</td><td><b>634 m/s</b></td></tr>
+          <tr class="muted-row"><td>2 m</td><td>23</td><td>6.2 ms</td><td><b>320 m/s</b></td><td>不可用</td></tr>
+          <tr class="muted-row"><td>4 m</td><td>22</td><td>12.9 ms</td><td><b>311 m/s</b></td><td>不可用</td></tr>
+          <tr class="muted-row"><td>6 m</td><td>21</td><td>16.8 ms</td><td><b>358 m/s</b></td><td>不可用</td></tr>
+          <tr><td>8 m</td><td>20</td><td>14.6 ms</td><td><b>547 m/s</b></td><td>可用</td></tr>
+          <tr><td>10 m</td><td>19</td><td>18.8 ms</td><td><b>533 m/s</b></td><td>可用</td></tr>
+          <tr><td>12 m</td><td>16</td><td>20.8 ms</td><td><b>578 m/s</b></td><td>可用</td></tr>
+          <tr><td>14 m</td><td>16</td><td>24.5 ms</td><td><b>571 m/s</b></td><td>可用</td></tr>
+          <tr class="muted-row"><td>16 m</td><td>11</td><td>27.2 ms</td><td><b>587 m/s</b></td><td>不可用</td></tr>
             </tbody>
           </table>
         </div>
-        <p class="chart-note">視速度從近支距的約 300&nbsp;m/s 一路上升到 16&nbsp;m 處的約 630&nbsp;m/s。<b>這正是 Evidence。</b>如果地下只有一層均勻介質，這個數字應該保持不變。<br>圖中 18&nbsp;m 與 20&nbsp;m 的空心點只有 5&ndash;6 道、且 SNR 已接近門檻，離散很大，不應拿來定斜率。</p>
+        <p class="chart-note">實心點是通過<a href="#stability">穩定度檢驗</a>的分組（支距 8&ndash;14&nbsp;m），視速度落在 <b>533&ndash;578&nbsp;m/s</b>。空心點則<b>不可用</b>：近支距（&lt;8&nbsp;m）的結果被挑選參數主導，遠支距（&gt;14&nbsp;m）的訊噪比已經不足。為什麼這樣判定，見下一節。</p>
+      </div>
+
+
+      <div class="chart-card reveal" id="stability">
+        <h3>結果三：我得到的數字，是資料給的還是參數給的？</h3>
+        <p>自動挑選器用一個「視速度視窗」限制搜尋範圍。支距愈小，這個視窗愈窄&mdash;&mdash;支距 2&nbsp;m、下限 180&nbsp;m/s 時，視窗只剩 0.8 到 11&nbsp;ms。那麼近支距挑到的時間，到底是資料決定的，還是視窗決定的？</p>
+        <p>把視窗下限掃過 160&ndash;300&nbsp;m/s，看每個分組的視速度跟著變動多少，答案就很清楚了。</p>
+        <div class="table-wrap">
+          <table class="spec-table tx-table">
+            <thead><tr><th>支距</th><th>160</th><th>180</th><th>200</th><th>220</th><th>250</th><th>300</th><th>變動</th><th>判定</th></tr></thead>
+            <tbody>
+          <tr class="muted-row"><td>2 m</td><td>286</td><td>320</td><td>333</td><td>348</td><td>381</td><td>533</td><td>67%</td><td>不穩定</td></tr>
+          <tr class="muted-row"><td>4 m</td><td>296</td><td>311</td><td>381</td><td>451</td><td>508</td><td>525</td><td>55%</td><td>不穩定</td></tr>
+          <tr class="muted-row"><td>6 m</td><td>333</td><td>358</td><td>414</td><td>353</td><td>774</td><td>774</td><td>88%</td><td>不穩定</td></tr>
+          <tr><td>8 m</td><td>547</td><td>547</td><td>547</td><td>533</td><td>547</td><td>557</td><td><b>4%</b></td><td><b>穩定</b></td></tr>
+          <tr><td>10 m</td><td>533</td><td>533</td><td>533</td><td>556</td><td>556</td><td>556</td><td><b>4%</b></td><td><b>穩定</b></td></tr>
+          <tr><td>12 m</td><td>578</td><td>578</td><td>589</td><td>589</td><td>589</td><td>589</td><td><b>2%</b></td><td><b>穩定</b></td></tr>
+          <tr><td>14 m</td><td>569</td><td>571</td><td>571</td><td>593</td><td>602</td><td>619</td><td><b>9%</b></td><td><b>穩定</b></td></tr>
+          <tr class="muted-row"><td>16 m</td><td>587</td><td>587</td><td>587</td><td>634</td><td>634</td><td>688</td><td>16%</td><td>不穩定</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="chart-note">單位皆為 m/s。<b>支距 8&ndash;14&nbsp;m 的視速度幾乎不隨參數改變</b>（變動 2&ndash;9%），這一段可以採信。小於 8&nbsp;m 的數字則完全跟著參數跑&mdash;&mdash;它們是視窗的產物，不是地下的性質。</p>
       </div>
 
       <div class="caveat reveal">
-        <p class="eyebrow">重要</p>
-        <h3>但這還不是答案。</h3>
-        <p>上面的初達波是<b>電腦自動挑的</b>，不是人判讀的。殘差 rms 9.6&nbsp;ms、互換時間最大差到 10&nbsp;ms 以上，代表有一部分挑選並不可靠。資料裡能量最強的其實是<b>表面波（ground roll）</b>，視速度只有約 127&nbsp;m/s；自動程式很容易挑到它而不是初達波。</p>
-        <p>所以本頁<b>不提供</b> V₁、V₂ 與界面深度的「標準答案」。要得到可以辯護的速度模型，必須：逐道人工判讀 first arrival → 用互換時間互相檢核 → 找出斜率轉折 → 再以截距時間法求解。<b>那是你的工作，不是程式的工作。</b></p>
+        <p class="eyebrow">這一步改變了結論</p>
+        <h3>自動程式拿不到 V₁。</h3>
+        <p>穩定度檢驗之前，看起來的故事是「視速度從近支距的 300&nbsp;m/s 一路升到 600&nbsp;m/s，所以有兩層」。檢驗之後才發現：<b>那個 300&nbsp;m/s 是挑選視窗造出來的</b>，不是量到的。</p>
+        <p>兩層模型需要兩段斜率：近支距的<b>直達波</b>給 V₁，遠支距的<b>折射波</b>給 V₂。自動挑選只穩穩拿到了 8&ndash;14&nbsp;m 這一段（約 533&ndash;578&nbsp;m/s），而 V₁ 所在的近支距段正是它最不可靠的地方。所以本頁<b>不提供</b> V₁、V₂ 與界面深度。</p>
+        <p>這不是程式的缺陷，而是這個方法在這組資料上的真實極限。資料裡能量最強的其實是<b>表面波（ground roll）</b>，視速度僅約 160&nbsp;m/s；自動程式很容易挑到它而不是初達波，近支距尤其如此。</p>
+        <p>所以接下來該做的是：<b>逐道人工判讀 first arrival</b>（近支距優先）&rarr; 用<b>互換時間</b>互相檢核 &rarr; 找出斜率轉折 &rarr; 再以截距時間法求 V₁、V₂ 與界面深度。程式已經把它做得到的部分（遠支距折射段、品質篩選、互換時間檢核、穩定度檢驗）準備好了，<b>剩下的是你的工作</b>。</p>
       </div>
 
       <div class="data-block reveal">
@@ -772,10 +799,22 @@
           <li><a href="https://github.com/oceanicdayi/2026_Utaipei_Geophysics_0909/tree/main/docs/seismic-inquiry/data/seg2">seg2/101.dat &ndash; 112.dat</a><span>儀器直出的 SEG-2 原始檔（檔頭幾何為預設值，須以 .geom 覆蓋）</span></li>
           <li><a href="data/202610_UTELS.geom">202610_UTELS.geom</a><span>幾何定義檔：24 道、2.0 m 間距、12 個炮點</span></li>
           <li><a href="data/202610_UTELS.pdf">202610_UTELS.pdf</a><span>12 頁 shot gather（0&ndash;0.1 s），可列印做人工挑選</span></li>
-          <li><a href="data/auto_first_breaks.csv">auto_first_breaks.csv</a><span>本頁的自動挑選結果與每道 SNR，拿來跟你自己挑的比對</span></li>
+          <li><a href="data/first_breaks.csv">first_breaks.csv</a><span>自動挑選結果與每道 SNR，拿來跟你自己挑的比對（由 analysis/ 的程式產生）</span></li>
           <li><a href="data/202610_UTELS_野外紀錄紙.pdf">野外紀錄紙.pdf</a><span>當天現場填寫的原始紀錄表</span></li>
           <li><a href="data/202610_UTELS_當日活動紀錄.md">當日活動紀錄.md</a><span>探究歷程與實測參數的完整對照</span></li>
         </ul>
+      </div>
+
+      <div class="data-block reveal" id="code">
+        <h3>分析程式</h3>
+        <p>上面每一張圖、每一個數字，都由一套公開的 Python 程式產生，使用 <b>ObsPy</b> 讀檔與前處理。你可以直接下載、執行、修改，用你自己人工挑的到時重跑一次。</p>
+        <ul class="data-list">
+          <li><a href="https://github.com/oceanicdayi/2026_Utaipei_Geophysics_0909/tree/main/analysis">analysis/（GitHub）</a><span>完整原始碼、安裝說明與使用教學</span></li>
+          <li><a href="data/analysis_README.md">安裝與使用教學</a><span>conda / pip 安裝、五個步驟的說明、疑難排解</span></li>
+          <li><a href="data/first_breaks.csv">first_breaks.csv</a><span>自動挑選結果：到時、視速度、SNR、是否可信</span></li>
+          <li><a href="data/sensitivity.csv">sensitivity.csv</a><span>穩定度檢驗的完整數值</span></li>
+        </ul>
+        <p class="chart-note">五個步驟：<code>01</code> 繪製炮集與頻譜 &rarr; <code>02</code> 資料品質檢核 &rarr; <code>03</code> 初達波自動挑選 &rarr; <code>04</code> 走時分析與反演 &rarr; <code>05</code> 參數敏感度測試。安裝好環境後，<code>python scripts/run_all.py</code> 一次跑完。</p>
       </div>
     </section>
 
@@ -804,7 +843,8 @@
       <div class="section-title reveal">
         <p class="eyebrow">INTERACTIVE 02</p>
         <h2>為什麼會出現兩種斜率？</h2>
-        <p>先假設地下是兩層水平介質。調整速度與深度，觀察直達波與折射波的理論走時。這是<strong>教學示意模型</strong>，<strong>不是</strong>本次實測反演結果——下方滑桿的預設值（300／900 m/s、2.5 m）只是示範用的數字，<b>不可以當成本測線的答案引用</b>。本次實測真正量到了什麼，請看<a href="#results">實驗結果</a>。</p>
+        <p>先假設地下是兩層水平介質。調整速度與深度，觀察直達波與折射波的理論走時。這是<strong>教學示意模型</strong>，<strong>不是</strong>本次實測反演結果——下方滑桿的預設值（300／900 m/s、2.5 m）只是示範用的數字，<b>不可以當成本測線的答案引用</b>。本次實測真正量到了什麼，請看<a href="#results">實驗結果</a>
+        <a href="#code">分析程式</a>。</p>
       </div>
 
       <div class="model-lab-grid reveal">

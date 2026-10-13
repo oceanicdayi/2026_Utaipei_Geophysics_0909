@@ -234,6 +234,8 @@ dialog::backdrop{background:rgba(0,0,0,.76)}
 .chart-card svg{width:100%;height:auto;margin:14px 0 6px}
 .chart-note{color:var(--muted);font-size:.92rem;max-width:900px;margin-top:14px}
 .tx-table{min-width:420px}
+.tx-table th,.tx-table td{width:auto}
+.tx-table th:first-child,.tx-table td:first-child{white-space:nowrap}
 .tx-table td,.tx-table th{white-space:nowrap}
 .tx-table thead th{color:var(--forest);font-weight:800}
 .caveat{background:#2a1c14;color:#fff;border-radius:24px;padding:38px 40px;margin-bottom:26px}
@@ -258,3 +260,6 @@ dialog::backdrop{background:rgba(0,0,0,.76)}
   .spec-card{padding:24px 22px}
   .kpi-row{grid-template-columns:1fr}
 }
+
+.tx-table tr.muted-row td{color:#9aa39e}
+.tx-table tr.muted-row td b{color:#9aa39e;font-weight:600}

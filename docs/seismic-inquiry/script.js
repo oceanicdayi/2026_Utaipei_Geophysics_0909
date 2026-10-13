@@ -164,8 +164,9 @@ function drawChart(){
     measured.picks.forEach(([x,t])=>{
       if(x<=XMAX&&t<=YMAX) txSvg.appendChild(E('circle',{cx:g.X(x),cy:g.Y(t),r:3.2,fill:'#7d9a68','fill-opacity':.55}));
     });
-    const solid=measured.txBins.filter(b=>b[0]<=XMAX&&b[2]>=10);
-    const weak =measured.txBins.filter(b=>b[0]<=XMAX&&b[2]<10);
+    // b[4] = 敏感度測試判定是否穩定（見 06_export_web.py）
+    const solid=measured.txBins.filter(b=>b[0]<=XMAX&&b[4]);
+    const weak =measured.txBins.filter(b=>b[0]<=XMAX&&!b[4]);
     txSvg.appendChild(E('path',{d:solid.map((b,i)=>`${i?'L':'M'} ${g.X(b[0]).toFixed(1)} ${g.Y(b[1]).toFixed(1)}`).join(' '),
       fill:'none',stroke:'#1d2c26','stroke-width':3}));
     solid.forEach(b=>{
@@ -176,9 +177,9 @@ function drawChart(){
       txSvg.appendChild(E('circle',{cx:g.X(b[0]),cy:g.Y(b[1]),r:5,fill:'none',stroke:'#9aa39e','stroke-width':2}));
       txt(txSvg,g.X(b[0]),g.Y(b[1])-12,b[3]+'',{'text-anchor':'middle',fill:'#9aa39e','font-size':11,'font-weight':700});
     });
-    txt(txSvg,m.l+8,m.t+16,'粗線 = 每 2 m 中位數（≥10 道），數字為該點視速度 (m/s)',
+    txt(txSvg,m.l+8,m.t+16,'實心 = 通過穩定度檢驗，數字為該點視速度 (m/s)',
         {fill:'#1d2c26','font-size':12,'font-weight':700});
-    txt(txSvg,m.l+8,m.t+32,'空心點 = 不足 10 道，可信度低',
+    txt(txSvg,m.l+8,m.t+32,'空心 = 未通過穩定度檢驗，不可用',
         {fill:'#9aa39e','font-size':12,'font-weight':700});
   }
 })();

@@ -1,0 +1,6 @@
+# 202610_UTELS 折射震測分析環境
+# 安裝：pip install -r requirements.txt
+obspy>=1.4
+numpy>=1.24
+scipy>=1.10
+matplotlib>=3.7

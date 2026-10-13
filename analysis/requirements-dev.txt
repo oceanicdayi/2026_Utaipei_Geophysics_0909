@@ -1,0 +1,4 @@
+# 開發與測試用（執行分析本身不需要）
+-r requirements.txt
+pytest>=7.0
+pytest-cov>=4.0
